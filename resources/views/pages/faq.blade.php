@@ -372,4 +372,5 @@
                     transform: rotate(180deg);
                 }
             </style>
-            @endsection
+    </body>
+</html>

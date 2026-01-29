@@ -7,6 +7,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Static Pages Routes
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::get('/faq', function () {
+    return view('pages.faq');
+})->name('faq');
+
+Route::get('/terms', function () {
+    return view('pages.terms');
+})->name('terms');
+
+Route::get('/privacy', function () {
+    return view('pages.privacy');
+})->name('privacy');
+
 use App\Http\Controllers\ServiceController;
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');

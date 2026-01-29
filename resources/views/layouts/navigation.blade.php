@@ -49,13 +49,13 @@
                     <a href="{{ route('services.index') }}" class="nav-link">
                         Services
                     </a>
-                    <a href="/about" class="nav-link">
+                    <a href="{{ route('about') }}" class="nav-link">
                         About
                     </a>
-                    <a href="/contact" class="nav-link">
+                    <a href="{{ route('contact') }}" class="nav-link">
                         Contact
                     </a>
-                    <a href="/faq" class="nav-link">
+                    <a href="{{ route('faq') }}" class="nav-link">
                         Help
                     </a>
                     <a href="{{ route('login') }}" class="nav-link">
@@ -239,13 +239,13 @@
             <a href="{{ route('services.index') }}" class="text-gray-600 hover:text-gray-900 transition">
                 Services
             </a>
-            <a href="/about" class="text-gray-600 hover:text-gray-900 transition">
+            <a href="{{ route('about') }}" class="text-gray-600 hover:text-gray-900 transition">
                 About
             </a>
-            <a href="/contact" class="text-gray-600 hover:text-gray-900 transition">
+            <a href="{{ route('contact') }}" class="text-gray-600 hover:text-gray-900 transition">
                 Contact
             </a>
-            <a href="/faq" class="text-gray-600 hover:text-gray-900 transition">
+            <a href="{{ route('faq') }}" class="text-gray-600 hover:text-gray-900 transition">
                 Help
             </a>
             <a href="{{ route('login') }}" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl transition-colors">

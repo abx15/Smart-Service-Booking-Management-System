@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart-booking-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - smart-booking-network
+    depends_on:
+      - mysql
+      - redis
+
+  nginx:
+    image: nginx:alpine
+    container_name: smart-booking-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - smart-booking-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: smart-booking-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: smart_booking
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: secret
+      MYSQL_USER: smart_booking
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - smart-booking-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: smart-booking-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - smart-booking-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: smart-booking-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - smart-booking-network
+
+networks:
+  smart-booking-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

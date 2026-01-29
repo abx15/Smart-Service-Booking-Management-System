@@ -57,7 +57,7 @@
     </a>
 
     <!-- Navigation -->
-    @include('layouts.navigation')
+    <x-navigation />
 
     <!-- Page Heading -->
     <header class="bg-white shadow-sm border-b border-gray-100 fade-in">

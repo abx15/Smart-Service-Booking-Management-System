@@ -102,6 +102,7 @@
                 </a>
             </nav>
         </div>
+        </div>
     </div>
     </div>
 </x-main-layout>

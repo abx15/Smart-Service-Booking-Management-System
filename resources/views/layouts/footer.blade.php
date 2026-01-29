@@ -72,8 +72,8 @@
                 <div>
                     <h4 class="text-white font-bold text-lg mb-6">Company</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">How It Works</a></li>
+                        <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                        <li><a href="{{ route('services.index') }}" class="text-gray-400 hover:text-white transition-colors duration-200">How It Works</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Press</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
@@ -85,12 +85,12 @@
                 <div>
                     <h4 class="text-white font-bold text-lg mb-6">Support</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Help Center</a></li>
+                        <li><a href="{{ route('faq') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Help Center</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Safety</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">FAQs</a></li>
+                        <li><a href="{{ route('terms') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a></li>
+                        <li><a href="{{ route('privacy') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a></li>
+                        <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Contact Us</a></li>
+                        <li><a href="{{ route('faq') }}" class="text-gray-400 hover:text-white transition-colors duration-200">FAQs</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,8 +108,8 @@
 
                 <!-- Bottom Links -->
                 <div class="flex flex-wrap items-center justify-center md:justify-end space-x-6 text-sm">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Terms</a>
+                    <a href="{{ route('privacy') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Privacy</a>
+                    <a href="{{ route('terms') }}" class="text-gray-400 hover:text-white transition-colors duration-200">Terms</a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Cookies</a>
                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">Licenses</a>
                     <div class="flex items-center space-x-2">

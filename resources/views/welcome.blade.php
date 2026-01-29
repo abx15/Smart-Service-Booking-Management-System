@@ -1,53 +1,62 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="SmartService - Professional home service booking platform. Connect with trusted professionals for cleaning, plumbing, electrical, and more.">
+        <meta name="keywords" content="home services, booking platform, professional services, smartservice">
+        <meta name="author" content="SmartService">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="SmartService - Professional Home Services">
+        <meta property="og:description" content="Connect with trusted professionals for all your home service needs. Quality guaranteed, every time.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="{{ asset('images/og-home.jpg') }}">
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+        
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- Custom Styles -->
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            .font-display {
+                font-family: 'Outfit', sans-serif;
+            }
+        </style>
+        
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#6366f1">
+        
+        <!-- Apple Touch Icon -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        
+        <title>{{ config('app.name', 'SmartService') }}</title>
+    </head>
+    <body class="font-sans antialiased bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+        <!-- Skip to main content for accessibility -->
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-indigo-600 text-white px-4 py-2 rounded-lg z-50">
+            Skip to main content
+        </a>
+        
+        <!-- Navigation -->
+        <x-navigation />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Smart Service') }}</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="antialiased bg-gray-50 text-gray-900">
-
-    <!-- Navigation -->
-    <nav class="bg-white/90 backdrop-blur-xl fixed w-full z-50 border-b border-gray-100 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <a href="/" class="flex-shrink-0 flex items-center gap-2 group">
-                        <div class="w-10 h-10 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-indigo-200 group-hover:scale-105 transition-transform">S</div>
-                        <span class="font-bold text-2xl text-gray-900 tracking-tight">Smart<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Service</span></span>
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="/" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Home</a>
-                    <a href="{{ route('services.index') }}" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Services</a>
-                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">About Us</a>
-                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Contact</a>
-                </div>
-                <div class="flex items-center gap-4">
-                    @auth
-                    <a href="{{ url('/dashboard') }}" class="font-medium text-gray-600 hover:text-gray-900 transition">Dashboard</a>
-                    @else
-                    <a href="{{ route('login') }}" class="font-medium text-gray-600 hover:text-gray-900 transition">Log in</a>
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-full transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Get Started</a>
-                    @endif
-                    @endauth
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Page Content -->
 
     <!-- Hero Section -->
     <div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
@@ -296,16 +305,80 @@
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-                <p>&copy; 2024 SmartService Inc. All rights reserved.</p>
-                <div class="mt-4 md:mt-0">
-                    <span class="mx-2">·</span>
-                    Made with <span class="text-red-500">♥</span> in Laravel
-                </div>
-            </div>
         </div>
-    </footer>
-
-</body>
-
+    </div>
+    
+        <!-- Footer -->
+        @include('layouts.footer')
+        
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
+            <div class="loading-spinner w-12 h-12"></div>
+        </div>
+        
+        <!-- Toast Container -->
+        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+        
+        <!-- Global Scripts -->
+        <script>
+            // Loading states
+            window.showLoading = function() {
+                document.getElementById('loading-overlay').classList.remove('hidden');
+                document.getElementById('loading-overlay').classList.add('flex');
+            };
+            
+            window.hideLoading = function() {
+                document.getElementById('loading-overlay').classList.add('hidden');
+                document.getElementById('loading-overlay').classList.remove('flex');
+            };
+            
+            // Toast notifications
+            window.showToast = function(message, type = 'info') {
+                const container = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                const bgColor = type === 'success' ? 'bg-green-500' : 
+                               type === 'error' ? 'bg-red-500' : 
+                               type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500';
+                
+                toast.className = `${bgColor} text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full`;
+                toast.textContent = message;
+                
+                container.appendChild(toast);
+                
+                // Animate in
+                setTimeout(() => {
+                    toast.classList.remove('translate-x-full');
+                    toast.classList.add('translate-x-0');
+                }, 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        container.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            };
+            
+            // Smooth scroll for anchor links
+            document.addEventListener('DOMContentLoaded', function() {
+                const links = document.querySelectorAll('a[href^="#"]');
+                links.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        const href = this.getAttribute('href');
+                        if (href !== '#') {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
 </html>

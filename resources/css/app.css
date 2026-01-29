@@ -7,16 +7,16 @@
 
 /* Custom CSS Variables */
 :root {
-  --primary: 99, 102, 241;
-  --primary-dark: 79, 70, 229;
-  --secondary: 168, 85, 247;
-  --accent: 236, 72, 153;
-  --success: 34, 197, 94;
-  --warning: 251, 146, 60;
+  --primary: 5, 150, 105;
+  --primary-dark: 4, 120, 87;
+  --secondary: 8, 145, 178;
+  --accent: 249, 115, 22;
+  --success: 16, 185, 129;
+  --warning: 245, 158, 11;
   --error: 239, 68, 68;
   --neutral: 107, 114, 128;
-  --base: 55, 65, 81;
-  --surface: 249, 250, 251;
+  --base: 6, 78, 59;
+  --surface: 240, 253, 244;
   --border: 229, 231, 235;
 }
 

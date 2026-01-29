@@ -16,7 +16,7 @@
     </div>
 
     <!-- Search & Filter -->
-    <div class="sticky top-20 z-40 bg-white border-b border-gray-100 shadow-sm">
+    <div class="sticky top-[5rem] z-40 bg-white border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <form action="{{ route('services.index') }}" method="GET" class="flex flex-col md:flex-row gap-4">
                 <div class="flex-grow relative">
@@ -102,7 +102,7 @@
                 </a>
             </nav>
         </div>
-        </div>
+    </div>
     </div>
     </div>
 </x-main-layout>

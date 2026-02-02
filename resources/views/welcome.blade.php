@@ -59,16 +59,65 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 float-in-up">
-                @foreach (['Cleaning', 'Plumbing', 'Electrical', 'Moving', 'Painting', 'Gardening'] as $index => $category)
-                <a href="{{ route('services.index', ['category' => $category]) }}" class="group block p-8 bg-white rounded-3xl hover:bg-primary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary text-center relative overflow-hidden">
+                <!-- Cleaning -->
+                <a href="{{ route('services.index', ['category' => 'Cleaning']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-primary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary text-center relative overflow-hidden">
                     <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-primary group-hover:bg-white group-hover:text-primary transition duration-300 mb-4 shadow-inner">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Cleaning</h3>
+                </a>
+
+                <!-- Plumbing -->
+                <a href="{{ route('services.index', ['category' => 'Plumbing']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-secondary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-secondary text-center relative overflow-hidden">
+                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-secondary group-hover:bg-white group-hover:text-secondary transition duration-300 mb-4 shadow-inner">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Plumbing</h3>
+                </a>
+
+                <!-- Electrical -->
+                <a href="{{ route('services.index', ['category' => 'Electrical']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-accent transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-accent text-center relative overflow-hidden">
+                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-accent group-hover:bg-white group-hover:text-accent transition duration-300 mb-4 shadow-inner">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">{{ $category }}</h3>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Electrical</h3>
                 </a>
-                @endforeach
+
+                <!-- Moving -->
+                <a href="{{ route('services.index', ['category' => 'Moving']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-primary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary text-center relative overflow-hidden">
+                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-primary group-hover:bg-white group-hover:text-primary transition duration-300 mb-4 shadow-inner">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Moving</h3>
+                </a>
+
+                <!-- Painting -->
+                <a href="{{ route('services.index', ['category' => 'Painting']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-secondary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-secondary text-center relative overflow-hidden">
+                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-secondary group-hover:bg-white group-hover:text-secondary transition duration-300 mb-4 shadow-inner">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Painting</h3>
+                </a>
+
+                <!-- Gardening -->
+                <a href="{{ route('services.index', ['category' => 'Gardening']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-accent transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-accent text-center relative overflow-hidden">
+                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-accent group-hover:bg-white group-hover:text-accent transition duration-300 mb-4 shadow-inner">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Gardening</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -91,7 +140,7 @@
 
             <!-- Service Grid (Placeholder for dynamic content) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Example Service Card -->
+                <!-- Service Card 1 -->
                 <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
                     <div class="h-48 bg-gray-200 relative">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -112,7 +161,50 @@
                         <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-primary transition">Book Now</a>
                     </div>
                 </div>
-                <!-- Additional cards would go here -->
+
+                <!-- Service Card 2 -->
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
+                    <div class="h-48 bg-gray-300 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold">Plumbing Repair</div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-gray-900 flex items-center">
+                            <svg class="w-3 h-3 text-warning mr-1 fill-current" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            4.8
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-secondary bg-bg-clean px-3 py-1 rounded-full uppercase tracking-wide">Plumbing</span>
+                            <span class="text-xl font-bold text-text-heading">$120</span>
+                        </div>
+                        <p class="text-text-body text-sm mb-6 line-clamp-2">Expert plumbing services for leaks, installations, and emergency repairs. Available 24/7 for urgent issues.</p>
+                        <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-secondary transition">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
+                    <div class="h-48 bg-gray-400 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold">Electrical Work</div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-gray-900 flex items-center">
+                            <svg class="w-3 h-3 text-warning mr-1 fill-current" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            4.7
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold text-accent bg-bg-clean px-3 py-1 rounded-full uppercase tracking-wide">Electrical</span>
+                            <span class="text-xl font-bold text-text-heading">$150</span>
+                        </div>
+                        <p class="text-text-body text-sm mb-6 line-clamp-2">Licensed electricians for installations, repairs, and maintenance. All work guaranteed and code compliant.</p>
+                        <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-accent transition">Book Now</a>
+                    </div>
+                </div>
             </div>
 
             <div class="mt-12 text-center md:hidden">

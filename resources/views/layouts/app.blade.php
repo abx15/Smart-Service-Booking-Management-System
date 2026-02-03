@@ -15,11 +15,21 @@
     <meta property="og:title" content="{{ config('app.name', 'Smart Service') }}">
     <meta property="og:description" content="Connect with top-rated professionals for all your home service needs.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
+    <meta property="og:image" content="{{ asset('logoServices.png') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
 
     <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logoServices.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logoServices.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('logoServices.png') }}">
+    
+    <!-- Meta for favicon -->
+    <meta name="msapplication-TileImage" content="{{ asset('logoServices.png') }}">
+    <meta name="msapplication-TileColor" content="#059669">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

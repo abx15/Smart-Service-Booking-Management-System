@@ -6,10 +6,8 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="{{ url('/') }}" class="flex items-center space-x-3 group">
-                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-200">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z" />
-                            </svg>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-200 overflow-hidden">
+                            <img src="{{ asset('logoServices.png') }}" alt="Smart Service Logo" class="w-full h-full object-cover">
                         </div>
                         <div class="font-display">
                             <span class="text-2xl font-black text-text-heading">Smart</span>

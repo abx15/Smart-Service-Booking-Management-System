@@ -1,26 +1,14 @@
 {{--
-    Partners/Clients Slider Component
-    
-    Usage:
-    <x-partners-slider :logos="[
-        ['src' => '/images/partner1.png', 'alt' => 'Partner 1', 'url' => '#'],
-        ['src' => '/images/partner2.png', 'alt' => 'Partner 2', 'url' => '#'],
-    ]" />
-    
-    Props:
-    - logos: Array of partner logo data (src, alt, url)
-    - title: Optional section title (default: "Trusted By Leading Brands")
-    - subtitle: Optional subtitle
+    Partners/Clients Slider Component - Individual Brand Logos
 --}}
 
 @props([
-'logos' => [],
 'title' => 'Trusted By Leading Brands',
-'subtitle' => 'Join thousands of satisfied customers and partners'
+'subtitle' => 'Join thousands of satisfied customers who trust our services'
 ])
 
-<section class="section-full-width py-16 md:py-20 bg-gray-50">
-    <div class="section-content-contained">
+<section class="w-full py-16 md:py-20 bg-gray-50">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         @if($title)
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ $title }}</h2>
@@ -30,37 +18,44 @@
         </div>
         @endif
 
+        {{-- Brand Logos Slider --}}
         <div class="partners-slider-container">
             <div class="swiper partners-swiper">
                 <div class="swiper-wrapper items-center">
-                    @forelse($logos as $logo)
+                    {{-- Brand Logos --}}
+                    @php
+                    $brands = [
+                    ['name' => 'Amazon', 'file' => 'amazon.png'],
+                    ['name' => 'Microsoft', 'file' => 'microsoft.png'],
+                    ['name' => 'Google', 'file' => 'google.png'],
+                    ['name' => 'Apple', 'file' => 'apple.png'],
+                    ['name' => 'Walmart', 'file' => 'walmart.png'],
+                    ['name' => 'Target', 'file' => 'target.png'],
+                    ['name' => 'Costco', 'file' => 'costco.png'],
+                    ['name' => 'Starbucks', 'file' => 'starbucks.png'],
+                    ];
+                    @endphp
+
+                    @foreach($brands as $brand)
                     <div class="swiper-slide">
-                        <a
-                            href="{{ $logo['url'] ?? '#' }}"
-                            class="flex items-center justify-center p-6 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
-                            @if(isset($logo['url']) && $logo['url'] !=='#' ) target="_blank" rel="noopener" @endif>
-                            <img
-                                src="{{ $logo['src'] }}"
-                                alt="{{ $logo['alt'] ?? 'Partner logo' }}"
-                                class="max-h-16 w-auto object-contain"
-                                loading="lazy">
-                        </a>
-                    </div>
-                    @empty
-                    {{-- Demo Partners (if no logos provided) --}}
-                    @foreach(range(1, 8) as $i)
-                    <div class="swiper-slide">
-                        <div class="flex items-center justify-center p-6 opacity-40">
-                            <div class="w-32 h-16 bg-gray-300 rounded-lg flex items-center justify-center">
-                                <span class="text-gray-500 font-semibold text-sm">Partner {{ $i }}</span>
+                        <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500">
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-shadow">
+                                <img
+                                    src="{{ asset('images/brands/' . $brand['file']) }}"
+                                    alt="{{ $brand['name'] }} Logo"
+                                    class="max-h-16 w-auto object-contain"
+                                    loading="lazy">
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    @endforelse
                 </div>
             </div>
         </div>
+
+        <p class="text-center text-sm text-gray-500 mt-8">
+            *For demonstration purposes. These brands represent the quality and scale we aspire to serve.
+        </p>
     </div>
 </section>
 
@@ -114,6 +109,6 @@
         height: auto;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-center;
     }
 </style>

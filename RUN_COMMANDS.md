@@ -5,7 +5,7 @@ Ye Laravel 12.0 application ko run karne ke liye complete guide hai.
 ## 📋 Prerequisites (Requirements)
 
 - **PHP 8.2+** install hona chahiye
-- **Composer 2.0+** install hona chahiye  
+- **Composer 2.0+** install hona chahiye
 - **Node.js 18.0+** aur **NPM 9.0+** install hona chahiye
 - **MySQL 8.0+** ya **SQLite 3.0+** database
 - **Redis** (optional, caching aur queues ke liye)
@@ -15,10 +15,13 @@ Ye Laravel 12.0 application ko run karne ke liye complete guide hai.
 ## 🔧 Setup Commands (Pehli Baar Run Karne Ke Liye)
 
 ### 1. Complete Setup (Ek Saath Sab Kuch)
+
 ```bash
 composer run setup
 ```
-*Ye command automatically kar degi:*
+
+_Ye command automatically kar degi:_
+
 - Composer dependencies install
 - .env file create
 - Application key generate
@@ -27,6 +30,7 @@ composer run setup
 - Assets build
 
 ### 2. Manual Setup (Step by Step)
+
 ```bash
 # 1. PHP dependencies install
 composer install
@@ -58,22 +62,28 @@ npm run build
 ## 🚀 Development Server Start Karne Ke Commands
 
 ### 1. Complete Development Server (Recommended)
+
 ```bash
 composer run dev
 ```
-*Ye command start kar degi:*
+
+_Ye command start kar degi:_
+
 - Laravel development server (http://localhost:8000)
 - Queue worker
 - Log monitoring (pail)
 - Vite development server
 
 ### 2. Simple Laravel Server
+
 ```bash
 php artisan serve
 ```
-*Server start hoga:* `http://localhost:8000`
+
+_Server start hoga:_ `http://localhost:8000`
 
 ### 3. Separate Services Start Karne Ke Liye
+
 ```bash
 # Terminal 1: Laravel server
 php artisan serve
@@ -93,6 +103,7 @@ php artisan pail
 ## 🔄 Development Ke Dauran Regularly Use Hone Wale Commands
 
 ### Assets Build Karne Ke Liye
+
 ```bash
 # Development assets build
 npm run dev
@@ -102,6 +113,7 @@ npm run build
 ```
 
 ### Database Related Commands
+
 ```bash
 # Fresh start ke liye
 php artisan migrate:fresh --seed
@@ -117,6 +129,7 @@ php artisan migrate:status
 ```
 
 ### Cache Clear Karne Ke Liye
+
 ```bash
 # Sab cache clear
 php artisan optimize:clear
@@ -129,6 +142,7 @@ php artisan cache:clear
 ```
 
 ### Testing Commands
+
 ```bash
 # All tests run
 composer run test
@@ -142,11 +156,25 @@ php artisan test --filter ServiceTest
 php artisan test --coverage
 ```
 
+## Quick Start Commands (Copy-Paste)
+
+```bash
+# 1. Install dependencies
+composer install && npm install
+
+# 2. Setup environment
+copy .env.example .env && php artisan key:generate
+
+# 3. अब सिर्फ एक command चलाएं (ONE COMMAND ONLY)
+npm run start
+```
+
 ---
 
 ## 🌐 Production Deployment Commands
 
 ### 1. Production Optimization
+
 ```bash
 # Environment set
 APP_ENV=production
@@ -160,11 +188,13 @@ php artisan optimize
 ```
 
 ### 2. Production Assets Build
+
 ```bash
 npm run build
 ```
 
 ### 3. Queue Worker Start
+
 ```bash
 php artisan queue:work --daemon
 ```
@@ -174,16 +204,19 @@ php artisan queue:work --daemon
 ## 🐳 Docker Commands (Agar Docker Use Kar Rahe Hain)
 
 ### Docker Compose Start
+
 ```bash
 docker-compose up -d
 ```
 
 ### Docker Mein Migrations Run
+
 ```bash
 docker-compose exec app php artisan migrate
 ```
 
 ### Docker Mein Commands Run
+
 ```bash
 docker-compose exec app php artisan <command>
 ```
@@ -193,6 +226,7 @@ docker-compose exec app php artisan <command>
 ## 🛠️ Troubleshooting Commands
 
 ### Common Issues Fix
+
 ```bash
 # Permission issues fix
 chmod -R 775 storage bootstrap/cache
@@ -210,6 +244,7 @@ php artisan package:discover --ansi
 ```
 
 ### Port Issues
+
 ```bash
 # Different port pe server start
 php artisan serve --port=8080
@@ -223,6 +258,7 @@ netstat -an | grep 8000
 ## 📱 Quick Start Summary
 
 ### New Project Setup (5 Minutes)
+
 ```bash
 # 1. Clone karke folder mein jao
 cd SmartManagementSystem
@@ -235,6 +271,7 @@ composer run dev
 ```
 
 ### Daily Development Start
+
 ```bash
 # Terminal mein project folder mein jao
 cd SmartManagementSystem
@@ -244,6 +281,7 @@ composer run dev
 ```
 
 ### Application Access
+
 - **Main Application**: http://localhost:8000
 - **Admin Dashboard**: http://localhost:8000/dashboard (admin role se)
 - **API Documentation**: http://localhost:8000/api/documentation

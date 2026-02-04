@@ -1,454 +1,354 @@
 <x-main-layout>
-    <!-- Hero Section -->
-    <div class="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-gray-50 w-full">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 z-0">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl"></div>
+    <x-slot name="title">Professional Home Services You Can Trust</x-slot>
+
+    {{-- 1. Hero Section - Full Width --}}
+    <section class="section-full-width relative pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        {{-- Background Pattern --}}
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         </div>
 
-        <div class="w-full px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary/20 text-primary text-sm font-semibold mb-8 shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
-                Trusted by 10,000+ Happy Customers
+        <div class="section-content-contained relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                {{-- Trust Badge Above Headline --}}
+                <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in">
+                    <x-guarantee-badge size="sm" />
+                    <span class="text-white font-semibold text-sm md:text-base">Trusted by 10,000+ Happy Customers</span>
+                </div>
+
+                {{-- Main Headline --}}
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight animate-fade-in-up">
+                    Your Trusted Home Repair<br class="hidden md:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300">Experts</span>
+                </h1>
+
+                {{-- Subheadline --}}
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in">
+                    Licensed, insured, and background-checked professionals ready to help with repairs, remodeling, and maintenance services for your home and business.
+                </p>
+
+                {{-- ZIP Code Search (NEW - Mr. Handyman Style) --}}
+                <div class="max-w-md mx-auto mb-8">
+                    <div class="flex gap-2">
+                        <input
+                            type="text"
+                            placeholder="Enter your ZIP code"
+                            class="flex-1 px-6 py-4 text-lg rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/20 transition">
+                        <button class="px-8 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-lg shadow-xl transition transform hover:-translate-y-0.5">
+                            Find Services
+                        </button>
+                    </div>
+                </div>
+
+                {{-- CTAs --}}
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-float-in-up">
+                    <x-button
+                        href="{{ route('bookings.create') }}"
+                        variant="primary"
+                        size="xl"
+                        class="group">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Request Service
+                    </x-button>
+
+                    <x-button
+                        href="tel:+18001234567"
+                        variant="outline"
+                        size="xl"
+                        class="!border-white !text-white hover:!bg-white hover:!text-gray-900">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Call (800) 123-4567
+                    </x-button>
+                </div>
+
+                {{-- Trust Indicators --}}
+                <div class="flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Licensed & Insured</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>10+ Years Experience</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Same-Day Service Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- 2. Trust Bar (NEW) --}}
+    <x-trust-bar />
+
+    {{-- 3. Service Categories - Residential & Commercial --}}
+    <section class="section-full-width py-20 md:py-28 bg-white">
+        <div class="section-content-contained">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Services for Every Need</h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Whether you're a homeowner or business, we have the expertise to deliver exceptional results.
+                </p>
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight text-gray-900 mb-8 leading-tight">
-                Professional Services, <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">Right at Your Doorstep.</span>
-            </h1>
+            <div class="grid md:grid-cols-3 gap-8">
+                {{-- Residential Services Card --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-8 border-2 border-primary/20 hover:border-primary hover:shadow-2xl transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Residential Services</h3>
+                        <p class="text-gray-600 mb-6">Expert home repairs, remodeling, and maintenance for homeowners.</p>
+                        <a href="/residential-services" class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all">
+                            Explore Residential
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-            <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-                Connect with top-rated professionals for cleaning, repair, and maintenance. Reliable service at the tap of a button.
-            </p>
+                {{-- Commercial Services Card --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/10 to-secondary/5 p-8 border-2 border-secondary/20 hover:border-secondary hover:shadow-2xl transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Commercial Services</h3>
+                        <p class="text-gray-600 mb-6">Professional facility maintenance and services for businesses.</p>
+                        <a href="/commercial-services" class="inline-flex items-center gap-2 text-secondary font-bold group-hover:gap-3 transition-all">
+                            Explore Commercial
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-lg mx-auto relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                <form action="{{ route('services.index') }}" method="GET" class="relative flex-grow flex bg-white rounded-full p-1.5 shadow-xl ring-1 ring-gray-900/5 items-center">
-                    <div class="pl-4 text-gray-400">
+                {{-- Emergency Services Card --}}
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 p-8 border-2 border-accent/20 hover:border-accent hover:shadow-2xl transition-all">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Emergency Repairs</h3>
+                        <p class="text-gray-600 mb-6">24/7 emergency response for urgent home and facility repairs.</p>
+                        <a href="tel:+18001234567" class="inline-flex items-center gap-2 text-accent font-bold group-hover:gap-3 transition-all">
+                            Call Now
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- 4. Popular Services Grid (NEW - Expanded) --}}
+    <x-popular-services-grid />
+
+    {{-- 5. Done Right Promise (NEW) --}}
+    <x-done-right-promise />
+
+    {{-- 6. Industries We Serve (NEW) --}}
+    <x-industries-grid />
+
+    {{-- 7. How It Works --}}
+    <x-how-it-works />
+
+    {{-- 8. Why Choose Us (Expanded - NEW) --}}
+    <x-why-choose-us-expanded />
+
+    {{-- 9. Testimonials Slider --}}
+    <section class="section-full-width py-20 md:py-28 bg-white">
+        <div class="section-content-contained">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Hear From Our Customers</h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real people, real results. See why thousands trust SmartService for their home needs.
+                </p>
+            </div>
+            <x-testimonials-slider />
+        </div>
+    </section>
+
+    {{-- 10. Service Areas / Coverage (NEW) --}}
+    <section class="section-full-width py-20 md:py-28 bg-gradient-to-br from-gray-50 to-white">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">Proudly Serving Your Community</h2>
+                <p class="text-lg md:text-xl text-gray-600 mb-12">
+                    Local expertise, national standards. Find out if we serve your area.
+                </p>
+
+                <div class="max-w-md mx-auto mb-12">
+                    <div class="flex gap-2">
+                        <input
+                            type="text"
+                            placeholder="Enter your city or ZIP code"
+                            class="flex-1 px-6 py-4 text-lg rounded-lg border-2 border-gray-300 focus:border-primary focus:outline-none transition">
+                        <button class="px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition">
+                            Search
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Downtown Area</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Suburbs</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Metro Region</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <svg class="w-5 h-5 text-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>Nearby Cities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- 11. Partners & Certifications (NEW) --}}
+    <section class="section-full-width py-20 md:py-28 bg-white border-y border-gray-200">
+        <div class="section-content-contained">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Trusted Partners & Certifications</h2>
+                <p class="text-gray-600">Working with industry-leading brands and certified professionals</p>
+            </div>
+            <x-partners-slider />
+        </div>
+    </section>
+
+    {{-- 12. FAQ Section (Inline - NEW) --}}
+    <section class="section-full-width py-20 md:py-28 bg-gray-50">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
+                    <p class="text-lg md:text-xl text-gray-600">
+                        Quick answers to common questions about our services
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <x-faq-accordion
+                        question="What areas do you serve?"
+                        answer="We serve the entire metro area and surrounding suburbs. Enter your ZIP code above to confirm service availability in your location." />
+                    <x-faq-accordion
+                        question="How quickly can you respond?"
+                        answer="We offer same-day service for most requests. Emergency repairs are available 24/7. Standard appointments can be scheduled at your convenience." />
+                    <x-faq-accordion
+                        question="Are your technicians licensed and insured?"
+                        answer="Yes! All our technicians are fully licensed, insured, and undergo comprehensive background checks. We maintain all necessary certifications and insurance coverage." />
+                    <x-faq-accordion
+                        question="Do you offer warranties on your work?"
+                        answer="Absolutely. All work is backed by our comprehensive warranty. Specific warranty terms depend on the service provided." />
+                    <x-faq-accordion
+                        question="How much do services cost?"
+                        answer="We provide upfront, transparent pricing before any work begins. Request a free quote online or call us for an estimate." />
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="{{ route('faq') }}" class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all text-lg">
+                        View All FAQs
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- 13. Final Strong CTA Section --}}
+    <section class="section-full-width py-24 md:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="section-content-contained relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    Join thousands of satisfied customers who trust SmartService for quality, reliability, and professionalism.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                    <a href="{{ route('bookings.create') }}" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white text-lg font-bold rounded-lg shadow-2xl shadow-primary/50 transition transform hover:-translate-y-1">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                    </div>
-                    <input type="text" name="search" class="block w-full p-3 text-lg text-gray-900 bg-transparent border-none focus:ring-0 placeholder-gray-400" placeholder="What service do you need?">
-                    <button type="submit" class="px-8 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-full transition shadow-md">Search</button>
-                </form>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="mt-16 flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold font-serif text-gray-400">Verified Pros</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold font-sans text-gray-400">Secure Payment</span>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold font-mono text-gray-400">24/7 Support</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Categories Section -->
-    <div class="py-24 bg-white w-full">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Explore Categories</h2>
-                <p class="text-lg text-gray-600">Everything you need for your home, all in one place.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <!-- Cleaning -->
-                <a href="{{ route('services.category', 'cleaning') }}" class="group block p-8 bg-white rounded-3xl hover:bg-primary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-primary text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-primary group-hover:bg-white group-hover:text-primary transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        Request Service Now
+                    </a>
+                    <a href="tel:+18001234567" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white/10 backdrop-blur-md hover:bg-white/20 border-2 border-white text-white text-lg font-bold rounded-lg transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Cleaning</h3>
-                </a>
+                        (800) 123-4567
+                    </a>
+                </div>
 
-                <!-- Plumbing -->
-                <a href="{{ route('services.category', 'plumbing') }}" class="group block p-8 bg-white rounded-3xl hover:bg-secondary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-secondary text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-white group-hover:text-secondary transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                <div class="flex flex-wrap justify-center gap-8 text-white/70 text-sm">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
+                        <span>Emergency Service Available</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Plumbing</h3>
-                </a>
-
-                <!-- Electrical -->
-                <a href="{{ route('services.category', 'electrical') }}" class="group block p-8 bg-white rounded-3xl hover:bg-accent transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-accent text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-accent group-hover:bg-white group-hover:text-accent transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
+                        <span>Free Quotes</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Electrical</h3>
-                </a>
-
-                <!-- Moving -->
-                <a href="{{ route('services.category', 'moving') }}" class="group block p-8 bg-white rounded-3xl hover:bg-success transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-success text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-success group-hover:bg-white group-hover:text-success transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Moving</h3>
-                </a>
-
-                <!-- Painting -->
-                <a href="{{ route('services.category', 'painting') }}" class="group block p-8 bg-white rounded-3xl hover:bg-purple-600 transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-purple-600 text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-purple-600 group-hover:bg-white group-hover:text-purple-600 transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Painting</h3>
-                </a>
-
-                <!-- Gardening -->
-                <a href="{{ route('services.category', 'gardening') }}" class="group block p-8 bg-white rounded-3xl hover:bg-emerald-600 transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-emerald-600 text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-gray-100 rounded-2xl flex items-center justify-center text-emerald-600 group-hover:bg-white group-hover:text-emerald-600 transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Gardening</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- How It Works Section -->
-    <div class="py-20 bg-gray-50 w-full">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-text-heading mb-4">How It Works</h2>
-                <p class="text-lg text-text-body max-w-2xl mx-auto">Get professional services in 3 simple steps. It's that easy!</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <!-- Step 1 -->
-                <div class="text-center group">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        1
-                    </div>
-                    <h3 class="text-xl font-bold text-text-heading mb-3">Choose Service</h3>
-                    <p class="text-text-body">Browse our wide range of professional services and select what you need.</p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center group">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-secondary to-accent rounded-3xl flex items-center justify-center text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        2
-                    </div>
-                    <h3 class="text-xl font-bold text-text-heading mb-3">Book Appointment</h3>
-                    <p class="text-text-body">Select your preferred date and time. Our professionals will be there.</p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center group">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-accent to-primary rounded-3xl flex items-center justify-center text-white text-2xl font-bold mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        3
-                    </div>
-                    <h3 class="text-xl font-bold text-text-heading mb-3">Enjoy Service</h3>
-                    <p class="text-text-body">Sit back and relax while our experts take care of everything.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                <!-- Painting -->
-                <a href="{{ route('services.index', ['category' => 'Painting']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-secondary transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-secondary text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-secondary group-hover:bg-white group-hover:text-secondary transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Painting</h3>
-                </a>
-
-                <!-- Gardening -->
-                <a href="{{ route('services.index', ['category' => 'Gardening']) }}" class="group block p-8 bg-white rounded-3xl hover:bg-accent transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-accent text-center relative overflow-hidden">
-                    <div class="w-16 h-16 mx-auto bg-bg-clean rounded-2xl flex items-center justify-center text-accent group-hover:bg-white group-hover:text-accent transition duration-300 mb-4 shadow-inner">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-gray-900 group-hover:text-white transition">Gardening</h3>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Featured Services -->
-    <div class="py-24 bg-bg-clean/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <h2 class="text-4xl font-bold text-text-heading mb-2">Popular Services</h2>
-                    <p class="text-lg text-text-body">Most booked services this week.</p>
-                </div>
-                <a href="{{ route('services.index') }}" class="hidden md:inline-flex items-center font-semibold text-primary hover:text-primary-dark transition">
-                    View all services
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Service Grid (Placeholder for dynamic content) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
-                    <div class="h-48 bg-gray-200 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold">Deep Cleaning</div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-gray-900 flex items-center">
-                            <svg class="w-3 h-3 text-warning mr-1 fill-current" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                            4.9
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold text-primary bg-bg-clean px-3 py-1 rounded-full uppercase tracking-wide">Cleaning</span>
-                            <span class="text-xl font-bold text-text-heading">$80</span>
-                        </div>
-                        <p class="text-text-body text-sm mb-6 line-clamp-2">Professional deep cleaning service for your entire home. Includes kitchen, bathrooms, and living areas.</p>
-                        <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-primary transition">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
-                    <div class="h-48 bg-gray-300 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold">Plumbing Repair</div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-gray-900 flex items-center">
-                            <svg class="w-3 h-3 text-warning mr-1 fill-current" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                            4.8
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold text-secondary bg-bg-clean px-3 py-1 rounded-full uppercase tracking-wide">Plumbing</span>
-                            <span class="text-xl font-bold text-text-heading">$120</span>
-                        </div>
-                        <p class="text-text-body text-sm mb-6 line-clamp-2">Expert plumbing services for leaks, installations, and emergency repairs. Available 24/7 for urgent issues.</p>
-                        <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-secondary transition">Book Now</a>
-                    </div>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 overflow-hidden">
-                    <div class="h-48 bg-gray-400 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold">Electrical Work</div>
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg text-xs font-bold text-gray-900 flex items-center">
-                            <svg class="w-3 h-3 text-warning mr-1 fill-current" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                            </svg>
-                            4.7
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-xs font-bold text-accent bg-bg-clean px-3 py-1 rounded-full uppercase tracking-wide">Electrical</span>
-                            <span class="text-xl font-bold text-text-heading">$150</span>
-                        </div>
-                        <p class="text-text-body text-sm mb-6 line-clamp-2">Licensed electricians for installations, repairs, and maintenance. All work guaranteed and code compliant.</p>
-                        <a href="{{ route('bookings.create') }}" class="block w-full py-3 text-center bg-gray-900 text-white font-semibold rounded-xl hover:bg-accent transition">Book Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center md:hidden">
-                <a href="{{ route('services.index') }}" class="inline-flex items-center font-bold text-primary hover:text-primary-dark transition border border-primary/20 bg-bg-clean px-6 py-3 rounded-xl">
-                    View all services
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Our Clients Section -->
-    <div class="py-20 bg-white w-full">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-text-heading mb-4">What Our Clients Say</h2>
-                <p class="text-lg text-text-body max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers</p>
-            </div>
-
-            <!-- Testimonials Swiper -->
-            <div class="swiper testimonials-swiper max-w-7xl mx-auto">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                                    JD
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">John Doe</h4>
-                                    <p class="text-sm text-gray-600">CEO, Tech Company</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4">
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 italic">"Outstanding service! The cleaning team was professional, thorough, and left our home sparkling clean. Highly recommend!"</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                                    SJ
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
-                                    <p class="text-sm text-gray-600">Homeowner</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4">
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 italic">"The plumber arrived on time and fixed our leak quickly. Professional service at reasonable prices!"</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                                    MC
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Michael Chen</h4>
-                                    <p class="text-sm text-gray-600">Restaurant Owner</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4">
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-warning" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 italic">"Electrician was knowledgeable and solved our complex wiring issue. Great service!"</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination mt-8"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Our Partners Section -->
-    <div class="py-20 bg-gray-50 w-full">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-text-heading mb-4">Our Trusted Partners</h2>
-                <p class="text-lg text-text-body max-w-2xl mx-auto">We work with the best companies in the industry</p>
-            </div>
-
-            <!-- Partners Swiper -->
-            <div class="swiper partners-swiper max-w-7xl mx-auto">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">TechCorp</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">CleanPro</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">HomeFix</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">ServiceHub</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">ProClean</div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex items-center justify-center h-32">
-                            <div class="text-2xl font-bold text-gray-700">FixIt</div>
-                        </div>
+                        <span>Satisfaction Guaranteed</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="py-24 bg-gray-900 relative overflow-hidden w-full">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary rounded-full opacity-20 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-secondary rounded-full opacity-20 blur-3xl"></div>
-
-        <div class="w-full px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">Ready to simplify your life?</h2>
-                <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">Join thousands of satisfied customers who have found reliable help for their daily needs. Get started in minutes.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="{{ route('register') }}" class="inline-block px-10 py-4 bg-primary hover:bg-primary-dark text-white font-bold text-lg rounded-full transition shadow-lg hover:shadow-xl hover:scale-105 transform">Get Started Today</a>
-                    <a href="{{ route('services.index') }}" class="inline-block px-10 py-4 bg-transparent border-2 border-white/20 text-white font-bold text-lg rounded-full hover:bg-white/10 transition">Browse Services</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <x-swiper-init />
+    </section>
 </x-main-layout>

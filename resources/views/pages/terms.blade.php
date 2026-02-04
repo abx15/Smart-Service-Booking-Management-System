@@ -1,290 +1,221 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        
-        <!-- SEO Meta Tags -->
-        <meta name="description" content="Terms of Service - SmartService - Read our terms and conditions for using our service booking platform.">
-        <meta name="keywords" content="terms of service, legal, smartservice, conditions">
-        <meta name="author" content="SmartService">
-        
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="Terms of Service - SmartService">
-        <meta property="og:description" content="Read our terms and conditions for using our service booking platform.">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="{{ asset('images/og-terms.jpg') }}">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-        <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
-        
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
-        <!-- Custom Styles -->
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
-            }
-            .font-display {
-                font-family: 'Outfit', sans-serif;
-            }
-        </style>
-        
-        <!-- Theme Color -->
-        <meta name="theme-color" content="#6366f1">
-        
-        <!-- Apple Touch Icon -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        
-        <title>Terms of Service - {{ config('app.name', 'SmartService') }}</title>
-    </head>
-    <body class="font-sans antialiased bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-        <!-- Skip to main content for accessibility -->
-        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-indigo-600 text-white px-4 py-2 rounded-lg z-50">
-            Skip to main content
-        </a>
-        
-        <!-- Navigation -->
-        <x-navigation />
+<x-main-layout>
+    <x-slot name="title">Terms of Service - SmartService</x-slot>
 
-        <!-- Page Heading -->
-        <header class="bg-white shadow-sm border-b border-gray-100 fade-in">
-            <div class="container-max container-padding py-6">
-                <div class="fade-in-up">
-                    <h1 class="text-3xl font-bold text-gray-900">Terms of Service</h1>
-                </div>
+    {{-- Hero Section --}}
+    <section class="section-full-width relative pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-primary/10 via-white to-secondary/5">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">
+                    Terms of Service
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Last Updated: {{ date('F d, Y') }}
+                </p>
             </div>
-        </header>
-
-        <!-- Page Content -->
-        <main id="main-content" class="flex-grow">
-            <div class="fade-in">
-<!-- Hero Section -->
-<div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
-    <!-- Background Effects -->
-    <div class="absolute inset-0">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="container-max container-padding relative z-10">
-        <div class="text-center text-white">
-            <h1 class="text-display text-white mb-6 animate-fade-in-up">
-                Terms of <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Service</span>
-            </h1>
-            <p class="text-xl text-indigo-100 max-w-3xl mx-auto mb-12 animate-fade-in-up leading-relaxed">
-                Please read these terms carefully before using SmartService platform.
-            </p>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Terms Content -->
-<div class="section-padding bg-white">
-    <div class="container-max container-padding">
-        <div class="max-w-4xl mx-auto">
-            <div class="prose prose-lg">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Acceptance of Terms</h2>
-                <p class="text-gray-600 mb-6">
-                    By accessing and using SmartService, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">2. Description of Service</h2>
-                <p class="text-gray-600 mb-6">
-                    SmartService is a platform that connects customers with professional service providers for various home services including cleaning, plumbing, electrical work, and more. We facilitate the booking process and provide tools for managing service appointments.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">3. User Accounts</h2>
-                <p class="text-gray-600 mb-4">
-                    <strong>3.1 Account Creation:</strong> To use certain features of our service, you must create an account. You are responsible for maintaining the confidentiality of your account credentials.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    <strong>3.2 Account Security:</strong> You are responsible for maintaining the security of your account. SmartService cannot and will not be liable for any loss or damage arising from your failure to comply with this security obligation.
-                </p>
-                <p class="text-gray-600 mb-6">
-                    <strong>3.3 Account Termination:</strong> We reserve the right to suspend or terminate your account at any time for any reason, including violation of these terms.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Service Provider Terms</h2>
-                <p class="text-gray-600 mb-4">
-                    <strong>4.1 Verification:</strong> All service providers must undergo our verification process and maintain valid licenses and certifications for their trade.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    <strong>4.2 Service Quality:</strong> Providers must deliver services with professional quality and adhere to industry standards.
-                </p>
-                <p class="text-gray-600 mb-6">
-                    <strong>4.3 Professional Conduct:</strong> Providers must maintain professional conduct and respect customer privacy and property.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Booking and Payment</h2>
-                <p class="text-gray-600 mb-4">
-                    <strong>5.1 Booking Process:</strong> All bookings must be made through our platform. Direct booking outside our system is not covered by our guarantees.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    <strong>5.2 Payment:</strong> Payment for services is processed through our secure payment system. Prices are clearly displayed before booking confirmation.
-                </p>
-                <p class="text-gray-600 mb-6">
-                    <strong>5.3 Refunds:</strong> Refunds are processed according to our cancellation policy. Cancellations made less than 24 hours before the scheduled service may incur a fee.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Cancellation Policy</h2>
-                <p class="text-gray-600 mb-4">
-                    <strong>6.1 Customer Cancellation:</strong> Customers may cancel bookings up to 24 hours before the scheduled service time for a full refund.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    <strong>6.2 Provider Cancellation:</strong> Providers must provide at least 24 hours notice for cancellation unless in emergency situations.
-                </p>
-                <p class="text-gray-600 mb-6">
-                    <strong>6.3 No-Shows:</strong> No-shows may result in account suspension or termination.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Intellectual Property</h2>
-                <p class="text-gray-600 mb-6">
-          <!-- Navigation -->
-        <x-navigation /> SmartService, including logos, text, graphics, and software, is owned by or licensed to SmartService and is protected by copyright and other intellectual property laws.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Privacy Policy</h2>
-                <p class="text-gray-600 mb-6">
-                    Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your information when you use our service. By using SmartService, you agree to the collection and use of information in accordance with our Privacy Policy.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Disclaimers</h2>
-                <p class="text-gray-600 mb-4">
-                    <strong>9.1 Service Quality:</strong> While we vet our service providers, we cannot guarantee the quality of every service. We encourage customers to review provider ratings and feedback.
-                </p>
-                <p class="text-gray-600 mb-4">
-                    <strong>9.2 Third-Party Services:</strong> Our service may contain links to third-party websites or services. We are not responsible for the content or practices of these third-party services.
-                </p>
-                <p class="text-gray-600 mb-6">
-                    <strong>9.3 Force Majeure:</strong> SmartService shall not be liable for any interruption or failure of service due to circumstances beyond our control.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Limitation of Liability</h2>
-                <p class="text-gray-600 mb-6">
-                    To the maximum extent permitted by law, SmartService shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of the service.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">11. Indemnification</h2>
-                <p class="text-gray-600 mb-6">
-                    You agree to indemnify and hold SmartService harmless from any claims, damages, or expenses arising from your use of the service or violation of these terms.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">12. Termination</h2>
-                <p class="text-gray-600 mb-6">
-                    We may terminate or suspend your account and bar access to the service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">13. Governing Law</h2>
-                <p class="text-gray-600 mb-6">
-                    These terms shall be interpreted and governed by the laws of the State of New York, United States, without regard to its conflict of law provisions.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">14. Changes to Terms</h2>
-                <p class="text-gray-600 mb-6">
-                    We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of the service after any changes constitutes acceptance of the new terms.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">15. Contact Information</h2>
-                <p class="text-gray-600 mb-6">
-                    If you have any questions about these Terms of Service, please contact us at:
-                </p>
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-600 mb-2"><strong>Email:</strong> legal@smartservice.com</p>
-                    <p class="text-gray-600 mb-2"><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p class="text-gray-600"><strong>Address:</strong> 123 Business Ave, New York, NY 10001</p>
-                </div>
-                
-                <div class="mt-12 p-6 bg-indigo-50 rounded-lg">
-                    <p class="text-sm text-indigo-800">
-                        <strong>Last Updated:</strong> {{ date('F j, Y') }}<br>
-                        <strong>Version:</strong> 1.0
+    {{-- Content --}}
+    <section class="section-full-width py-16 md:py-20 bg-white">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto prose prose-lg">
+
+                <div class="bg-blue-50 border-l-4 border-primary p-6 rounded-r-xl mb-10">
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                        Welcome to SmartService! These Terms of Service ("Terms") govern your use of our platform and services. By accessing or using SmartService, you agree to be bound by these Terms. Please read them carefully.
                     </p>
                 </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">1. Acceptance of Terms</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    By creating an account, booking a service, or otherwise using SmartService, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree, you may not use our services.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">2. Eligibility</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    You must be at least 18 years old to use SmartService. By using our services, you represent and warrant that you meet this age requirement and have the legal capacity to enter into binding contracts.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">3. Account Registration</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3.1 Account Creation</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    To access certain features, you must create an account. You agree to:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Provide accurate, current, and complete information</li>
+                    <li>Maintain and promptly update your account information</li>
+                    <li>Keep your password secure and confidential</li>
+                    <li>Notify us immediately of any unauthorized access</li>
+                    <li>Accept responsibility for all activities under your account</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3.2 Account Termination</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We reserve the right to suspend or terminate your account at our discretion, particularly if you violate these Terms or engage in fraudulent, abusive, or illegal activity.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">4. Services and Bookings</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">4.1 Service Marketplace</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    SmartService operates as a platform connecting customers with independent service professionals. We facilitate bookings but do not directly provide the services. Service professionals are independent contractors, not our employees.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">4.2 Booking Process</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    When you book a service:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>You enter into a service agreement with the professional</li>
+                    <li>Pricing is clearly communicated before confirmation</li>
+                    <li>You agree to provide accurate service location and details</li>
+                    <li>You must be present or arrange access for the professional</li>
+                    <li>Payment is processed according to our payment terms</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">4.3 Cancellation and Rescheduling</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Cancellation policies vary by service type:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li><strong>24+ hours notice:</strong> Full refund or free rescheduling</li>
+                    <li><strong>Less than 24 hours:</strong> May incur cancellation fee</li>
+                    <li><strong>No-show:</strong> Full service charge applied</li>
+                    <li><strong>Emergency services:</strong> Non-refundable service call fee</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">5. Payments and Fees</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">5.1 Pricing</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Service prices are quoted before booking and may vary based on service type, location, time, and complexity. All prices are in USD unless otherwise stated and include applicable taxes where required.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">5.2 Payment Methods</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We accept major credit cards, debit cards, and other payment methods as displayed. Payment processing is handled by secure third-party providers. You authorize us to charge your payment method for all fees incurred.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">5.3 Refunds</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Refunds are issued at our discretion based on the circumstances. If you are dissatisfied with a service, please contact us within 48 hours. Our 100% satisfaction guarantee applies to eligible services.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">6. User Conduct</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    You agree not to:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Use the platform for illegal or unauthorized purposes</li>
+                    <li>Provide false or misleading information</li>
+                    <li>Harass, abuse, or harm service professionals or other users</li>
+                    <li>Interfere with platform operations or security</li>
+                    <li>Attempt to circumvent our payment system</li>
+                    <li>Use automated tools to access the platform without permission</li>
+                    <li>Violate any applicable laws or regulations</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">7. Service Professional Standards</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    All service professionals on our platform:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Are background-checked and verified</li>
+                    <li>Hold necessary licenses and insurance</li>
+                    <li>Agree to our professional standards and code of conduct</li>
+                    <li>Are independent contractors, not SmartService employees</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">8. Liability and Disclaimers</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">8.1 Platform "As Is"</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    The platform is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee uninterrupted, error-free, or secure access.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">8.2 Limitation of Liability</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    To the fullest extent permitted by law, SmartService shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or goodwill, arising from your use of our services.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">8.3 Service Professional Liability</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Service professionals are independent contractors responsible for their own work. While we vet professionals carefully, SmartService is not liable for the quality of work, damages, or injuries arising from services performed.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">9. Indemnification</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    You agree to indemnify and hold SmartService, its affiliates, and personnel harmless from any claims, damages, losses, liabilities, and expenses arising from your use of the platform, violation of these Terms, or infringement of any rights of another party.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">10. Intellectual Property</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    All content, trademarks, logos, and intellectual property on SmartService are owned by us or our licensors. You may not copy, reproduce, distribute, or create derivative works without our express written permission.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">11. Dispute Resolution</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">11.1 Informal Resolution</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    If you have a dispute, please contact us first at <a href="mailto:support@smartservice.com" class="text-primary hover:underline">support@smartservice.com</a>. We'll work in good faith to resolve the issue.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">11.2 Arbitration</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Any unresolved disputes shall be settled by binding arbitration in accordance with the rules of the American Arbitration Association. You waive your right to participate in class action lawsuits.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">12. Changes to Terms</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We may modify these Terms at any time. We will notify you of significant changes by email or platform notification. Continued use of SmartService after changes constitutes acceptance of the updated Terms.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">13. Governing Law</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    These Terms are governed by the laws of [Your State/Country], without regard to conflict of law principles. Any legal action must be brought in the courts located in [Your Jurisdiction].
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">14. Contact Information</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    For questions about these Terms, please contact us:
+                </p>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <p class="text-gray-700 mb-2"><strong>Email:</strong> <a href="mailto:legal@smartservice.com" class="text-primary hover:underline">legal@smartservice.com</a></p>
+                    <p class="text-gray-700 mb-2"><strong>Phone:</strong> <a href="tel:+18001234567" class="text-primary hover:underline">(800) 123-4567</a></p>
+                    <p class="text-gray-700 mb-0"><strong>Address:</strong> 123 Main Street, Suite 100, Your City, ST 12345</p>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-xl mt-10">
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                        <strong>Note:</strong> By using SmartService, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy.
+                    </p>
+                </div>
+
             </div>
         </div>
-    </div>
-</div>
-        <!-- Footer -->
-        @include('layouts.footer')
-        
-        <!-- Loading Overlay -->
-        <div id="loading-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
-            <div class="loading-spinner w-12 h-12"></div>
+    </section>
+
+    {{-- CTA --}}
+    <section class="section-full-width py-16 md:py-20 bg-gray-50">
+        <div class="section-content-contained">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Ready to Get Started?
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Book professional home services with confidence today!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <x-button href="{{ route('services.index') }}" variant="primary" size="lg">
+                        View Services
+                    </x-button>
+                    <x-button href="{{ route('contact') }}" variant="outline" size="lg">
+                        Contact Us
+                    </x-button>
+                </div>
+            </div>
         </div>
-        
-        <!-- Toast Container -->
-        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
-        
-        <!-- Global Scripts -->
-        <script>
-            // Loading states
-            window.showLoading = function() {
-                document.getElementById('loading-overlay').classList.remove('hidden');
-                document.getElementById('loading-overlay').classList.add('flex');
-            };
-            
-            window.hideLoading = function() {
-                document.getElementById('loading-overlay').classList.add('hidden');
-                document.getElementById('loading-overlay').classList.remove('flex');
-            };
-            
-            // Toast notifications
-            window.showToast = function(message, type = 'info') {
-                const container = document.getElementById('toast-container');
-                const toast = document.createElement('div');
-                const bgColor = type === 'success' ? 'bg-green-500' : 
-                               type === 'error' ? 'bg-red-500' : 
-                               type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500';
-                
-                toast.className = `${bgColor} text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full`;
-                toast.textContent = message;
-                
-                container.appendChild(toast);
-                
-                // Animate in
-                setTimeout(() => {
-                    toast.classList.remove('translate-x-full');
-                    toast.classList.add('translate-x-0');
-                }, 100);
-                
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    toast.classList.add('translate-x-full');
-                    setTimeout(() => {
-                        container.removeChild(toast);
-                    }, 300);
-                }, 3000);
-            };
-            
-            // Smooth scroll for anchor links
-            document.addEventListener('DOMContentLoaded', function() {
-                const links = document.querySelectorAll('a[href^="#"]');
-                links.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        const href = this.getAttribute('href');
-                        if (href !== '#') {
-                            e.preventDefault();
-                            const target = document.querySelector(href);
-                            if (target) {
-                                target.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                });
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-    </body>
-</html>
+    </section>
+
+</x-main-layout>

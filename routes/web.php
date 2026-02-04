@@ -28,12 +28,24 @@ Route::get('/privacy', function () {
     return view('pages.privacy');
 })->name('privacy');
 
+Route::get('/how-it-works', function () {
+    return view('pages.how-it-works');
+})->name('how-it-works');
+
 use App\Http\Controllers\ServiceController;
 
 // Service Routes
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{category}', [ServiceController::class, 'category'])->name('services.category');
 Route::get('/services/{category}/{service}', [ServiceController::class, 'show'])->name('services.show');
+
+// Residential Services Routes (NEW - Phase 3)
+Route::get('/residential-services', [ServiceController::class, 'residential'])->name('residential.index');
+Route::get('/residential-services/{category}', [ServiceController::class, 'residentialCategory'])->name('residential.category');
+
+// Commercial Services Routes (NEW - Phase 3)
+Route::get('/commercial-services', [ServiceController::class, 'commercial'])->name('commercial.index');
+Route::get('/commercial-services/industries/{industry}', [ServiceController::class, 'commercialIndustry'])->name('commercial.industry');
 
 use App\Http\Controllers\DashboardController;
 

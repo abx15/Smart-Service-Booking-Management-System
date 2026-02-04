@@ -1,348 +1,178 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        
-        <!-- SEO Meta Tags -->
-        <meta name="description" content="Privacy Policy - SmartService - Learn how we collect, use, and protect your information on our service booking platform.">
-        <meta name="keywords" content="privacy policy, data protection, smartservice, security">
-        <meta name="author" content="SmartService">
-        
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="Privacy Policy - SmartService">
-        <meta property="og:description" content="Learn how we collect, use, and protect your information on our service booking platform.">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="{{ asset('images/og-privacy.jpg') }}">
-        
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-        <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
-        
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
-        <!-- Custom Styles -->
-        <style>
-            body {
-                font-family: 'Inter', sans-serif;
-            }
-            .font-display {
-                font-family: 'Outfit', sans-serif;
-            }
-        </style>
-        
-        <!-- Theme Color -->
-        <meta name="theme-color" content="#6366f1">
-        
-        <!-- Apple Touch Icon -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        
-        <title>Privacy Policy - {{ config('app.name', 'SmartService') }}</title>
-    </head>
-    <body class="font-sans antialiased bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-        <!-- Skip to main content for accessibility -->
-        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-indigo-600 text-white px-4 py-2 rounded-lg z-50">
-            Skip to main content
-        </a>
-        
-        <!-- Navigation -->
-        <x-navigation />
+<x-main-layout>
+    <x-slot name="title">Privacy Policy - SmartService</x-slot>
 
-        <!-- Page Heading -->
-        <header class="bg-white shadow-sm border-b border-gray-100 fade-in">
-            <div class="container-max container-padding py-6">
-                <div class="fade-in-up">
-                    <h1 class="text-3xl font-bold text-gray-900">Privacy Policy</h1>
-                </div>
+    {{-- Hero Section --}}
+    <section class="section-full-width relative pt-24 pb-16 md:pt-32 md:pb-20 bg-gradient-to-br from-primary/10 via-white to-secondary/5">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">
+                    Privacy Policy
+                </h1>
+                <p class="text-lg text-gray-600">
+                    Last Updated: {{ date('F d, Y') }}
+                </p>
             </div>
-        </header>
-
-        <!-- Page Content -->
-        <main id="main-content" class="flex-grow">
-            <div class="fade-in">
-<!-- Hero Section -->
-<div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
-    <!-- Background Effects -->
-    <div class="absolute inset-0">
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-    </div>
-    
-    <div class="container-max container-padding relative z-10">
-        <div class="text-center text-white">
-            <h1 class="text-display text-white mb-6 animate-fade-in-up">
-                Privacy <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Policy</span>
-            </h1>
-            <p class="text-xl text-indigo-100 max-w-3xl mx-auto mb-12 animate-fade-in-up leading-relaxed">
-                Your privacy is important to us. This policy explains how we collect, use, and protect your information.
-            </p>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Privacy Content -->
-<div class="section-padding bg-white">
-    <div class="container-max container-padding">
-        <div class="max-w-4xl mx-auto">
-            <div class="prose prose-lg">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
-                <p class="text-gray-600 mb-6">
-                    We collect information you provide directly to us, such as when you create an account, book a service, or contact us for support.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Personal Information</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>Name and contact details</li>
-                    <li>Email address and phone number</li>
-                    <li>Payment information</li>
-                    <li>Service preferences and requirements</li>
-                    <li>Communication history</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Automatically Collected Information</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>IP address and device information</li>
-                    <li>Browser type and operating system</li>
-                    <li>Pages visited and time spent on our site</li>
-                    <li>Referring website information</li>
-                </ul>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">How We Use Your Information</h2>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Service Provision</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>To facilitate service bookings</li>
-                    <li>To connect customers with service providers</li>
-                    <li>To process payments and transactions</li>
-                    <li>To send booking confirmations and updates</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Communication</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>To respond to your inquiries</li>
-                    <li>To send important updates about our services</li>
-                    <li>To provide customer support</li>
-                    <li>To share promotional offers (with your consent)</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Platform Improvement</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>To analyze usage patterns and improve our services</li>
-                    <li>To develop new features and functionalities</li>
-                    <li>To ensure platform security and prevent fraud</li>
-                    <li>To personalize your experience</li>
-                </ul>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Information Sharing</h2>
-                <p class="text-gray-600 mb-6">
-                    We may share your information with service providers you book through our platform to facilitate service delivery. We only share information necessary for the service to be provided.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Service Providers</h3>
-                <p class="text-gray-600 mb-4">
-                    When you book a service, we share your contact information and booking details with the assigned service provider. This enables them to:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>Contact you about the booking</li>
-                    <li>Provide the agreed-upon service</li>
-                    <li>Handle payment processing</li>
-                    <li>Send service-related communications</li>
-                </ul>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Third-Party Services</h3>
-                <p class="text-gray-600 mb-6">
-                    We may share information with third-party service providers for:
-                </p>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>Payment processing</li>
-                    <li>Email delivery services</li>
-                    <li>Analytics and performance monitoring</li>
-                    <li>Customer support tools</li>
-                </ul>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Data Security</h2>
-                <p class="text-gray-600 mb-6">
-                    We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Security Measures</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>SSL/TLS encryption for data transmission</li>
-                    <li>Secure payment processing</li>
-                    <li>Regular security audits and testing</li>
-                    <li>Employee training on data protection</li>
-                    <li>Access controls and authentication</li>
-                </ul>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Data Retention</h2>
-                <p class="text-gray-600 mb-6">
-                    We retain your personal information only as long as necessary to provide our services and fulfill the purposes outlined in this privacy policy.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Retention Periods</h3>
-                <ul class="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                    <li>Account information: Until account deletion</li>
-                    <li>Booking records: 2 years after service completion</li>
-                    <li>Payment information: 7 years for tax purposes</li>
-                <li>Communication logs: 1 year</li>
-                <li>Analytics data: 26 months</li>
-                </ul>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Your Rights</h2>
-                <p class="text-gray-600 mb-6">
-                    You have certain rights regarding your personal information under applicable privacy laws.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Access and Correction</h3>
-                <p class="text-gray-600 mb-6">
-                    You can access, update, or delete your personal information through your account settings or by contacting our support team.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Data Portability</h3>
-                <p class="text-gray-600 mb-6">
-                    You have the right to request a copy of your personal information in a structured, machine-readable format.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Right to Erasure</h3>
-                <p class="text-gray-600 mb-6">
-                    You can request deletion of your personal information, subject to certain legal obligations.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Cookies and Tracking</h2>
-                <p class="text-gray-600 mb-6">
-                    We use cookies and similar tracking technologies to enhance your experience on our platform.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Essential Cookies</h3>
-                <p class="text-gray-600 mb-6">
-                    These are necessary for our platform to function properly, including security, authentication, and core functionality.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Analytics Cookies</h3>
-                <p class="gray-600 mb-6">
-                    We use analytics cookies to understand how our platform is used and to improve our services.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-gray-900 mb-3">Marketing Cookies</h3>
-                <p class="text-gray-600 mb-6">
-                    With your consent, we may use marketing cookies to show you personalized advertisements and promotions.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
-                <p class="text-gray-600 mb-6">
-                    Our service is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">International Data Transfers</h2>
-                <p class="text-gray-600 mb-6">
-                    Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place for international data transfers.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
-                <p class="text-gray-600 mb-6">
-                    We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on our website and updating the "Last Updated" date.
-                </p>
-                
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-                <p class="text-gray-600 mb-6">
-                    If you have any questions about this Privacy Policy, please contact us at:
-                </p>
-                
-                <div class="bg-gray-50 p-4 rounded-lg">
-                    <p class="text-gray-600 mb-2"><strong>Email:</strong> privacy@smartservice.com</p>
-                    <p class="text-gray-600 mb-2"><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p class="text-gray-600"><strong>Address:</strong> 123 Business Ave, New York, NY 10001</p>
-                </div>
-                
-                <div class="mt-12 p-6 bg-indigo-50 rounded-lg">
-                    <p class="text-sm text-indigo-800">
-                        <strong>Last Updated:</strong> {{ date('F j, Y') }}<br>
-                        <strong>Effective Date:</strong> January 1, 2024
+    {{-- Content --}}
+    <section class="section-full-width py-16 md:py-20 bg-white">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto prose prose-lg">
+
+                <div class="bg-blue-50 border-l-4 border-primary p-6 rounded-r-xl mb-10">
+                    <p class="text-gray-700 leading-relaxed mb-0">
+                        At SmartService, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
                     </p>
                 </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">1. Information We Collect</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">1.1 Personal Information</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We collect information that you provide directly to us, including:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Name, email address, phone number, and mailing address</li>
+                    <li>Payment information (processed securely through third-party providers)</li>
+                    <li>Service preferences and booking history</li>
+                    <li>Account credentials (username and encrypted password)</li>
+                    <li>Communications with our customer support team</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">1.2 Automatically Collected Information</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    When you access our website or mobile application, we automatically collect:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Device information (IP address, browser type, operating system)</li>
+                    <li>Usage data (pages viewed, time spent, click patterns)</li>
+                    <li>Location data (with your permission)</li>
+                    <li>Cookies and similar tracking technologies</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">2. How We Use Your Information</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We use the collected information for the following purposes:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li><strong>Service Delivery:</strong> To process bookings, coordinate with service professionals, and fulfill your requests</li>
+                    <li><strong>Communication:</strong> To send booking confirmations, updates, and respond to inquiries</li>
+                    <li><strong>Payment Processing:</strong> To process transactions and prevent fraud</li>
+                    <li><strong>Personalization:</strong> To customize your experience and provide relevant recommendations</li>
+                    <li><strong>Analytics:</strong> To understand usage patterns and improve our services</li>
+                    <li><strong>Marketing:</strong> To send promotional communications (with your consent)</li>
+                    <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">3. Information Sharing and Disclosure</h2>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3.1 Service Professionals</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We share your contact information and service details with the professionals assigned to your booking to enable them to complete the requested services.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3.2 Third-Party Service Providers</h3>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We may share information with trusted third parties who assist us with:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Payment processing (Stripe, PayPal, etc.)</li>
+                    <li>Email and SMS communications</li>
+                    <li>Analytics and performance monitoring</li>
+                    <li>Customer support services</li>
+                    <li>Background checks for service professionals</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mt-8 mb-4">3.3 Legal Requirements</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We may disclose your information if required by law, court order, or governmental request, or to protect our rights, property, or safety.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">4. Data Security</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We implement appropriate technical and organizational measures to protect your personal information, including:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>SSL/TLS encryption for data transmission</li>
+                    <li>Encrypted storage of sensitive data</li>
+                    <li>Regular security audits and vulnerability assessments</li>
+                    <li>Access controls and authentication mechanisms</li>
+                    <li>Employee training on data protection</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security but strive to use commercially acceptable means to protect your data.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">5. Your Privacy Rights</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Depending on your location, you may have the following rights:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li><strong>Access:</strong> Request a copy of your personal information</li>
+                    <li><strong>Correction:</strong> Update or correct inaccurate data</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                    <li><strong>Opt-Out:</strong> Unsubscribe from marketing communications</li>
+                    <li><strong>Data Portability:</strong> Receive your data in a portable format</li>
+                    <li><strong>Restriction:</strong> Limit how we use your information</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    To exercise these rights, please contact us at <a href="mailto:privacy@smartservice.com" class="text-primary hover:underline">privacy@smartservice.com</a>.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">6. Cookies and Tracking</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    We use cookies and similar technologies to:
+                </p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2 mb-6">
+                    <li>Remember your preferences and settings</li>
+                    <li>Analyze site traffic and usage patterns</li>
+                    <li>Provide personalized content and advertisements</li>
+                    <li>Improve site functionality and user experience</li>
+                </ul>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    You can control cookies through your browser settings. Note that disabling cookies may affect site functionality.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">7. Children's Privacy</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">8. Changes to This Policy</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    We may update this Privacy Policy periodically. We will notify you of significant changes by posting the new policy on our website and updating the "Last Updated" date. Your continued use of our services after changes constitutes acceptance of the updated policy.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mt-12 mb-6">9. Contact Us</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    If you have questions or concerns about this Privacy Policy, please contact us:
+                </p>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <p class="text-gray-700 mb-2"><strong>Email:</strong> <a href="mailto:privacy@smartservice.com" class="text-primary hover:underline">privacy@smartservice.com</a></p>
+                    <p class="text-gray-700 mb-2"><strong>Phone:</strong> <a href="tel:+18001234567" class="text-primary hover:underline">(800) 123-4567</a></p>
+                    <p class="text-gray-700 mb-0"><strong>Address:</strong> 123 Main Street, Suite 100, Your City, ST 12345</p>
+                </div>
+
             </div>
         </div>
-    </div>
-    
-        <!-- Footer -->
-        @include('layouts.footer')
-        
-        <!-- Loading Overlay -->
-        <div id="loading-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
-            <div class="loading-spinner w-12 h-12"></div>
+    </section>
+
+    {{-- CTA --}}
+    <section class="section-full-width py-16 md:py-20 bg-gray-50">
+        <div class="section-content-contained">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Have More Questions?
+                </h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    We're here to help! Contact us if you need clarification on our privacy practices.
+                </p>
+                <x-button href="{{ route('contact') }}" variant="primary" size="lg">
+                    Contact Us
+                </x-button>
+            </div>
         </div>
-        
-        <!-- Toast Container -->
-        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
-        
-        <!-- Global Scripts -->
-        <script>
-            // Loading states
-            window.showLoading = function() {
-                document.getElementById('loading-overlay').classList.remove('hidden');
-                document.getElementById('loading-overlay').classList.add('flex');
-            };
-            
-            window.hideLoading = function() {
-                document.getElementById('loading-overlay').classList.add('hidden');
-                document.getElementById('loading-overlay').classList.remove('flex');
-            };
-            
-            // Toast notifications
-            window.showToast = function(message, type = 'info') {
-                const container = document.getElementById('toast-container');
-                const toast = document.createElement('div');
-                const bgColor = type === 'success' ? 'bg-green-500' : 
-                               type === 'error' ? 'bg-red-500' : 
-                               type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500';
-                
-                toast.className = `${bgColor} text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full`;
-                toast.textContent = message;
-                
-                container.appendChild(toast);
-                
-                // Animate in
-                setTimeout(() => {
-                    toast.classList.remove('translate-x-full');
-                    toast.classList.add('translate-x-0');
-                }, 100);
-                
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    toast.classList.add('translate-x-full');
-                    setTimeout(() => {
-                        container.removeChild(toast);
-                    }, 300);
-                }, 3000);
-            };
-            
-            // Smooth scroll for anchor links
-            document.addEventListener('DOMContentLoaded', function() {
-                const links = document.querySelectorAll('a[href^="#"]');
-                links.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        const href = this.getAttribute('href');
-                        if (href !== '#') {
-                            e.preventDefault();
-                            const target = document.querySelector(href);
-                            if (target) {
-                                target.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                });
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-    </body>
-</html>
+    </section>
+
+</x-main-layout>

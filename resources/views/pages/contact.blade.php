@@ -1,311 +1,253 @@
 <x-main-layout>
-    <x-slot name="title">
-        Contact Us - {{ config('app.name', 'SmartService') }}
-    </x-slot>
+    <x-slot name="title">Contact Us - SmartService</x-slot>
 
-    <!-- Hero Section -->
-    <div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
-        <!-- Background Effects -->
-        <div class="absolute inset-0">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center text-white">
-                <h1 class="text-5xl md:text-6xl font-black mb-6">
-                    Get in <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Touch</span>
+    {{-- Hero Section --}}
+    <section class="section-full-width relative pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-br from-primary/10 via-white to-secondary/5">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+                    Get In Touch
                 </h1>
-                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
-                    Have questions? Need support? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+                    Have questions? Need a quote? We're here to help! Contact us today and discover why thousands of homeowners trust SmartService.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
-            <!-- Contact Info Section -->
-            <div class="section-padding bg-white">
-                <div class="container-max container-padding">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                        <div class="text-center animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502.1l-2.907-.732a1 1 0 01-.616-.616l-.732-2.907a1 1 0 01.1-.502L5.284 3.28A1 1 0 015.28 3H7a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Email Us</h3>
-                            <p class="text-gray-600 mb-2">support@smartservice.com</p>
-                            <p class="text-gray-500 text-sm">We'll respond within 24 hours</p>
+    {{-- Contact Form & Info --}}
+    <section class="section-full-width py-20 md:py-28 bg-white">
+        <div class="section-content-contained">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {{-- Contact Form --}}
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                    <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+                    <form action="#" method="POST" class="space-y-6">
+                        @csrf
+                        {{-- Name --}}
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">Full Name *</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="John Doe">
                         </div>
 
-                        <div class="text-center animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502.1l-2.907-.732a1 1 0 01-.616-.616l-.732-2.907a1 1 0 01.1-.502L5.284 3.28A1 1 0 015.28 3H7a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Call Us</h3>
-                            <p class="text-gray-600 mb-2">+1 (555) 123-4567</p>
-                            <p class="text-gray-500 text-sm">Mon-Fri: 9AM-6PM EST</p>
+                        {{-- Email --}}
+                        <div>
+                            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email Address *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="john@example.com">
                         </div>
 
-                        <div class="text-center animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {{-- Phone --}}
+                        <div>
+                            <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                                placeholder="(555) 123-4567">
+                        </div>
+
+                        {{-- Service --}}
+                        <div>
+                            <label for="service" class="block text-sm font-semibold text-gray-900 mb-2">Service Interested In</label>
+                            <select
+                                id="service"
+                                name="service"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="">Select a service...</option>
+                                <option value="cleaning">Cleaning</option>
+                                <option value="plumbing">Plumbing</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="moving">Moving</option>
+                                <option value="painting">Painting</option>
+                                <option value="gardening">Gardening</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        {{-- Message --}}
+                        <div>
+                            <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message *</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                                placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        {{-- Submit Button --}}
+                        <x-button type="submit" variant="primary" size="lg" full-width="true">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Send Message
+                        </x-button>
+                    </form>
+                </div>
+
+                {{-- Contact Information --}}
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact Information</h2>
+                    <p class="text-gray-600 mb-10">Prefer to reach us directly? Here's how:</p>
+
+                    <div class="space-y-8">
+                        {{-- Phone --}}
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg mb-1">Phone</h3>
+                                <a href="tel:+18001234567" class="text-primary hover:underline text-lg">(800) 123-4567</a>
+                                <p class="text-sm text-gray-600 mt-1">Monday - Sunday: 7:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+
+                        {{-- Email --}}
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg mb-1">Email</h3>
+                                <a href="mailto:info@smartservice.com" class="text-primary hover:underline text-lg">info@smartservice.com</a>
+                                <p class="text-sm text-gray-600 mt-1">We'll respond within 24 hours</p>
+                            </div>
+                        </div>
+
+                        {{-- Address --}}
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">Visit Us</h3>
-                            <p class="text-gray-600 mb-2">123 Business Ave</p>
-                            <p class="text-gray-500 text-sm">New York, NY 10001</p>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg mb-1">Office Address</h3>
+                                <p class="text-gray-700">123 Main Street, Suite 100<br>Your City, ST 12345</p>
+                            </div>
+                        </div>
+
+                        {{-- Emergency --}}
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-lg mb-1">Emergency Service</h3>
+                                <a href="tel:+18009998888" class="text-red-600 hover:underline text-lg font-bold">(800) 999-8888</a>
+                                <p class="text-sm text-gray-600 mt-1">24/7 Emergency Response</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Social Media --}}
+                    <div class="mt-12">
+                        <h3 class="font-bold text-gray-900 text-lg mb-4">Follow Us</h3>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 bg-gray-200 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-200 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-200 hover:bg-primary hover:text-white rounded-lg flex items-center justify-center transition-all">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Contact Form Section -->
-            <div class="section-padding bg-gray-50">
-                <div class="container-max container-padding">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <!-- Contact Form -->
-                        <div class="animate-on-scroll">
-                            <h2 class="text-heading mb-6">Send us a Message</h2>
-                            <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
-
-                            <form class="space-y-6">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                                        <input type="text" class="input" placeholder="John">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                                        <input type="text" class="input" placeholder="Doe">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                    <input type="email" class="input" placeholder="john@example.com">
-                                </div>
-
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                    <input type="tel" class="input" placeholder="+1 (555) 123-4567">
-                                </div>
-
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                                    <select class="input">
-                                        <option>General Inquiry</option>
-                                        <option>Technical Support</option>
-                                        <option>Billing Question</option>
-                                        <option>Partnership</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                    <textarea class="input textarea" rows="5" placeholder="Tell us how we can help you..."></textarea>
-                                </div>
-
-                                <div class="flex items-center">
-                                    <input type="checkbox" class="checkbox mr-2">
-                                    <label class="text-sm text-gray-600">I agree to the privacy policy and terms of service</label>
-                                </div>
-
-                                <button type="submit" class="btn-primary w-full">
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-
-                        <!-- Map & Additional Info -->
-                        <div class="animate-on-scroll">
-                            <h2 class="text-heading mb-6">Find Us</h2>
-
-                            <!-- Map Placeholder -->
-                            <div class="bg-gray-200 rounded-2xl h-96 mb-8 relative overflow-hidden">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <div class="text-center">
-                                        <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                        </svg>
-                                        <p class="text-gray-600">Interactive Map</p>
-                                        <p class="text-gray-500 text-sm">123 Business Ave, New York, NY</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Office Hours -->
-                            <div class="card p-6">
-                                <h3 class="text-lg font-bold text-gray-900 mb-4">Office Hours</h3>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Monday - Friday</span>
-                                        <span class="font-medium text-gray-900">9:00 AM - 6:00 PM</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Saturday</span>
-                                        <span class="font-medium text-gray-900">10:00 AM - 4:00 PM</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Sunday</span>
-                                        <span class="font-medium text-gray-900">Closed</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Social Media -->
-                            <div class="mt-8">
-                                <h3 class="text-lg font-bold text-gray-900 mb-4">Follow Us</h3>
-                                <div class="flex space-x-4">
-                                    <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.048 1.407.06 4.123.06h.08c2.643 0 2.987-.012 4.043-.06 1.064-.049 1.791-.218 2.427-.465a4.902 4.902 0 001.772-1.153 4.902 4.902 0 001.153-1.772c.247-.636.416-1.363.465-2.427.048-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987.012-4.043.06-1.064.049-1.791.218-2.427.465a4.902 4.902 0 00-1.772-1.153 4.902 4.902 0 00-1.772-1.153c-.636-.247-1.363-.416-2.427-.465-1.067-.047-1.409-.06-3.809-.06h-.63zm1.118 2.058c-2.607 0-2.937.01-4.044.061-.926.043-1.554.195-2.164.432a2.895 2.895 0 00-1.085.708 2.893 2.893 0 00-.709 1.085c-.236.61-.389 1.238-.431 2.164-.05 1.107-.061 1.437-.061 4.044v.936c0 2.607.01 2.937.061 4.044.043.926.195 1.554.432 2.164a2.917 2.917 0 001.794 1.794c.61.237 1.238.389 2.164.432 1.107.05 1.437.061 4.044.061h.936c2.607 0 2.937-.01 4.044-.061.926-.043 1.554-.195 2.164-.432a2.915 2.915 0 001.085-.709 2.914 2.914 0 00.709-1.085c.236-.61.389-1.238.431-2.164.05-1.107.061-1.437.061-4.044v-.936c0-2.607-.01-2.937-.061-4.044-.043-.926-.195-1.554-.432-2.164a2.914 2.914 0 00-.709-1.085 2.91 2.91 0 00-1.085-.708c-.61-.236-1.238-.389-2.164-.431-1.107-.05-1.437-.061-4.044-.061h-.936zm-1.85 4.86a3.91 3.91 0 110 7.82 3.91 3.91 0 010-7.82zm0 1.94a1.97 1.97 0 100 3.94 1.97 1.97 0 000-3.94zm5.336-6.198a.98.98 0 010 1.96.98.98 0 010-1.96z" clip-rule="evenodd" />
-                                        </svg>
-                                    </a>
-                                    <a href="#" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.064-2.063 2.064z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Section -->
-            <div class="section-padding bg-white">
-                <div class="container-max container-padding">
-                    <div class="text-center mb-12">
-                        <h2 class="text-heading mb-4">Frequently Asked Questions</h2>
-                        <p class="text-body text-gray-600 max-w-2xl mx-auto">Quick answers to common questions about SmartService</p>
-                    </div>
-
-                    <div class="max-w-3xl mx-auto">
-                        <div class="space-y-4">
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I book a service?</h3>
-                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Simply browse our services, select what you need, choose a time slot, and confirm your booking. You'll receive confirmation and updates via email.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
-                                    <h3 class="text-lg font-semibold text-gray-900">Are the service providers verified?</h3>
-                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Yes! All our service providers go through a thorough verification process including background checks and skill verification.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition">
-                                    <h3 class="text-lg font-semibold text-gray-900">What if I need to cancel my booking?</h3>
-                                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    You can cancel your booking up to 24 hours before the scheduled time for a full refund. Late cancellations may incur a fee.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        <!-- Footer -->
-        @include('layouts.footer')
-        
-        <!-- Loading Overlay -->
-        <div id="loading-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center">
-            <div class="loading-spinner w-12 h-12"></div>
         </div>
-        
-        <!-- Toast Container -->
-        <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
-        
-        <!-- Global Scripts -->
-        <script>
-            // Loading states
-            window.showLoading = function() {
-                document.getElementById('loading-overlay').classList.remove('hidden');
-                document.getElementById('loading-overlay').classList.add('flex');
-            };
-            
-            window.hideLoading = function() {
-                document.getElementById('loading-overlay').classList.add('hidden');
-                document.getElementById('loading-overlay').classList.remove('flex');
-            };
-            
-            // Toast notifications
-            window.showToast = function(message, type = 'info') {
-                const container = document.getElementById('toast-container');
-                const toast = document.createElement('div');
-                const bgColor = type === 'success' ? 'bg-green-500' : 
-                               type === 'error' ? 'bg-red-500' : 
-                               type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500';
-                
-                toast.className = `${bgColor} text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 translate-x-full`;
-                toast.textContent = message;
-                
-                container.appendChild(toast);
-                
-                // Animate in
-                setTimeout(() => {
-                    toast.classList.remove('translate-x-full');
-                    toast.classList.add('translate-x-0');
-                }, 100);
-                
-                // Remove after 3 seconds
-                setTimeout(() => {
-                    toast.classList.add('translate-x-full');
-                    setTimeout(() => {
-                        container.removeChild(toast);
-                    }, 300);
-                }, 3000);
-            };
-            
-            // Smooth scroll for anchor links
-            document.addEventListener('DOMContentLoaded', function() {
-                const links = document.querySelectorAll('a[href^="#"]');
-                links.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        const href = this.getAttribute('href');
-                        if (href !== '#') {
-                            e.preventDefault();
-                            const target = document.querySelector(href);
-                            if (target) {
-                                target.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'start'
-                                });
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-    </body>
-</html>
+    </section>
+
+    {{-- Service Areas --}}
+    <section class="section-full-width py-20 md:py-28 bg-gray-50">
+        <div class="section-content-contained">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Service Areas</h2>
+                <p class="text-lg text-gray-600">We proudly serve the following areas and surrounding communities:</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl p-8 shadow-md">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="p-4">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <h4 class="font-semibold text-gray-900">Your City</h4>
+                    </div>
+                    <div class="p-4">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <h4 class="font-semibold text-gray-900">North County</h4>
+                    </div>
+                    <div class="p-4">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <h4 class="font-semibold text-gray-900">South County</h4>
+                    </div>
+                    <div class="p-4">
+                        <svg class="w-8 h-8 mx-auto mb-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <h4 class="font-semibold text-gray-900">East County</h4>
+                    </div>
+                </div>
+                <p class="text-center text-gray-600 mt-6">Don't see your area? <a href="#" class="text-primary hover:underline font-semibold">Contact us</a> - we may still be able to help!</p>
+            </div>
+        </div>
+    </section>
+
+    {{-- CTA --}}
+    <section class="section-full-width py-20 md:py-28 bg-gradient-to-r from-primary via-secondary to-accent">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
+                    Need Service Today?
+                </h2>
+                <p class="text-xl text-white/90 mb-10">
+                    Call now for same-day service or emergency support!
+                </p>
+                <x-button href="tel:+18001234567" variant="secondary" size="xl" class="!bg-white !text-primary hover:!bg-gray-100">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    Call (800) 123-4567
+                </x-button>
+            </div>
+        </div>
+    </section>
+
+</x-main-layout>

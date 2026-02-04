@@ -1,308 +1,114 @@
 <x-main-layout>
-    <x-slot name="title">
-        Help & FAQ - {{ config('app.name', 'SmartService') }}
-    </x-slot>
+    <x-slot name="title">Frequently Asked Questions - SmartService</x-slot>
 
-    <!-- Hero Section -->
-    <div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
-        <!-- Background Effects -->
-        <div class="absolute inset-0">
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center text-white">
-                <h1 class="text-5xl md:text-6xl font-black mb-6">
-                    Help & <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Support</span>
+    {{-- Hero Section --}}
+    <section class="section-full-width relative pt-24 pb-20 md:pt-32 md:pb-28 bg-gradient-to-br from-primary/10 via-white to-secondary/5">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-6">
+                    Frequently Asked
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Questions</span>
                 </h1>
-                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
-                    Find answers to common questions and get the support you need to make the most of SmartService.
+                <p class="text-lg md:text-xl text-gray-600 leading-relaxed">
+                    Find answers to common questions about our services, pricing, and processes.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
-            <!-- Search Section -->
-            <div class="section-padding bg-white">
-                <div class="container-max container-padding">
-                    <div class="max-w-2xl mx-auto">
-                        <div class="relative">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-25"></div>
-                            <div class="relative flex bg-white rounded-full p-2 shadow-lg">
-                                <div class="pl-6 pr-2 py-3 flex-1">
-                                    <input type="text" id="faq-search" placeholder="Search for answers..." class="w-full text-gray-900 placeholder-gray-400 focus:outline-none text-lg">
-                                </div>
-                                <button class="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-full hover:shadow-lg transition">
-                                    Search
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+    {{-- FAQ Categories --}}
+    <section class="section-full-width py-20 md:py-28 bg-white">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto">
+                {{-- General Questions --}}
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">General Questions</h2>
+                    @php
+                    $generalFaqs = [
+                    ['question' => 'What areas do you serve?', 'answer' => 'We serve Your City and surrounding counties including North, South, and East County. If you\'re not sure if we cover your area, please contact us and we\'ll let you know!'],
+                    ['question' => 'Are you licensed and insured?', 'answer' => 'Yes! All our professionals are fully licensed, bonded, and insured. We carry comprehensive liability and workers\' compensation insurance for your peace of mind and protection.'],
+                    ['question' => 'Do you offer emergency services?', 'answer' => 'Yes, we provide 24/7 emergency services for plumbing, electrical, and other urgent home repairs. Call our emergency line at (800) 999-8888 anytime.'],
+                    ['question' => 'How quickly can you schedule service?', 'answer' => 'For non-emergency services, we typically offer same-day or next-day appointments. Emergency services are available immediately 24/7. Availability varies by service type and demand.'],
+                    ['question' => 'Do I need to be home during service?', 'answer' => 'While we prefer you to be home, it\'s not always necessary. For regular maintenance services, we can work with a key or access code. However, we recommend being present for major repairs or installations to review the work and ask questions.'],
+                    ];
+                    @endphp
+                    <x-faq-accordion :faqs="$generalFaqs" />
+                </div>
+
+                {{-- Service Questions --}}
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Service Questions</h2>
+                    @php
+                    $serviceFaqs = [
+                    ['question' => 'What services do you offer?', 'answer' => 'We offer comprehensive home services including Plumbing, Electrical, Cleaning, Painting, Moving, and Gardening/Landscaping. Each category includes multiple specialized services. Visit our Services page for a complete list.'],
+                    ['question' => 'Do you provide free estimates?', 'answer' => 'Yes! We provide free, no-obligation estimates for most services. For diagnostic work (like finding a leak or electrical issue), there may be a service call fee that is waived if you proceed with the repair.'],
+                    ['question' => 'Can I schedule multiple services at once?', 'answer' => 'Absolutely! We can coordinate multiple services to be done during a single visit when possible. This saves you time and can sometimes reduce overall costs. Just let us know what you need when booking.'],
+                    ['question' => 'What if I need to reschedule my appointment?', 'answer' => 'We understand plans change! Please give us 24 hours notice if you need to reschedule, and we\'ll work with you to find a new time that fits your schedule.'],
+                    ['question' => 'Do you guarantee your work?', 'answer' => 'Yes! We offer a 100% satisfaction guarantee on all our services. Most work comes with a warranty (typically 1-2 years) on labor, and we honor manufacturer warranties on parts and materials. If you\'re not satisfied, we\'ll make it right.'],
+                    ];
+                    @endphp
+                    <x-faq-accordion :faqs="$serviceFaqs" />
+                </div>
+
+                {{-- Pricing Questions --}}
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Pricing & Payment</h2>
+                    @php
+                    $pricingFaqs = [
+                    ['question' => 'How much do your services cost?', 'answer' => 'Pricing varies by service type, complexity, and time required. We offer transparent pricing and will provide a detailed quote before starting work. Visit individual service pages for general pricing ranges, or contact us for a specific estimate.'],
+                    ['question' => 'Do you charge a service call fee?', 'answer' => 'For diagnostic services (plumbing leaks, electrical issues, etc.), we charge a service call fee of $79 which includes the visit and diagnosis. This fee is waived if you proceed with the recommended repair.'],
+                    ['question' => 'What payment methods do you accept?', 'answer' => 'We accept cash, credit/debit cards (Visa, Mastercard, American Express, Discover), checks, and digital payments (Venmo, PayPal). Payment is due upon completion of service.'],
+                    ['question' => 'Do you offer financing?', 'answer' => 'Yes, we offer financing options for larger projects through our partnering lenders. Ask your service technician or our office staff about available financing plans.'],
+                    ['question' => 'Are there any hidden fees?', 'answer' => 'Never! We believe in transparent pricing. Any additional costs (travel fees, urgent service premiums, etc.) will be clearly communicated before we begin work. You\'ll always know exactly what you\'re paying for.'],
+                    ];
+                    @endphp
+                    <x-faq-accordion :faqs="$pricingFaqs" />
+                </div>
+
+                {{-- Booking Questions --}}
+                <div class="mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Booking & Scheduling</h2>
+                    @php
+                    $bookingFaqs = [
+                    ['question' => 'How do I book a service?', 'answer' => 'You can book online through our website, call us at (800) 123-4567, or send us a message through our Contact page. We\'ll confirm your appointment and send you a reminder before your scheduled service.'],
+                    ['question' => 'What happens after I book?', 'answer' => 'After booking, you\'ll receive a confirmation email or text. We\'ll send a reminder 24 hours before your appointment and call when our technician is on the way (usually 30 minutes before arrival).'],
+                    ['question' => 'Will the same technician come every time?', 'answer' => 'For recurring services (like regular cleaning or lawn care), we try to assign the same professional for consistency. For one-time services, we\'ll send the best qualified professional available for your specific needs.'],
+                    ['question' => 'What should I prepare before the technician arrives?', 'answer' => 'Clear access to the work area, secure pets in a separate room, and inform us of any special considerations (alarm systems, fragile items, etc.). For specific services, we\'ll provide additional preparation instructions when you book.'],
+                    ['question' => 'What if the technician can\'t complete the work?', 'answer' => 'If we discover additional issues or if the scope changes, we\'ll stop and discuss options with you before proceeding. You\'ll approve any additional work and pricing before we continue. We never do unauthorized work.'],
+                    ];
+                    @endphp
+                    <x-faq-accordion :faqs="$bookingFaqs" />
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Categories Section -->
-            <div class="section-padding bg-gray-50">
-                <div class="container-max container-padding">
-                    <div class="text-center mb-12">
-                        <h2 class="text-heading mb-4">Browse by Category</h2>
-                        <p class="text-body text-gray-600 max-w-2xl mx-auto">Find help topics organized by category</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <a href="#getting-started" class="card card-hover p-6 text-center group animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-                                <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-gray-900 group-hover:text-indigo-600 transition">Getting Started</h3>
-                            <p class="text-sm text-gray-500 mt-2">New to SmartService? Start here.</p>
-                        </a>
-
-                        <a href="#booking" class="card card-hover p-6 text-center group animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-gray-900 group-hover:text-green-600 transition">Booking</h3>
-                            <p class="text-sm text-gray-500 mt-2">Learn how to book services.</p>
-                        </a>
-
-                        <a href="#payment" class="card card-hover p-6 text-center group animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-                                <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-gray-900 group-hover:text-yellow-600 transition">Payment</h3>
-                            <p class="text-sm text-gray-500 mt-2">Payment methods and billing.</p>
-                        </a>
-
-                        <a href="#account" class="card card-hover p-6 text-center group animate-on-scroll">
-                            <div class="w-16 h-16 bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
-                                <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </div>
-                            <h3 class="font-bold text-gray-900 group-hover:text-pink-600 transition">Account</h3>
-                            <p class="text-sm text-gray-500 mt-2">Manage your account settings.</p>
-                        </a>
-                    </div>
+    {{-- Still Have Questions CTA --}}
+    <section class="section-full-width py-20 md:py-28 bg-gray-50">
+        <div class="section-content-contained">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Still Have Questions?
+                </h2>
+                <p class="text-lg text-gray-600 mb-10">
+                    Our friendly team is here to help! Reach out and we'll get you the answers you need.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <x-button href="{{ route('contact') }}" variant="primary" size="lg">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Contact Us
+                    </x-button>
+                    <x-button href="tel:+18001234567" variant="outline" size="lg">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Call (800) 123-4567
+                    </x-button>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- FAQ Sections -->
-            <div class="section-padding bg-white">
-                <div class="container-max container-padding">
-                    <!-- Getting Started -->
-                    <div id="getting-started" class="mb-16">
-                        <h2 class="text-heading mb-8">Getting Started</h2>
-                        <div class="space-y-4 max-w-4xl">
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I create an account?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Click on the "Sign Up" button in the top navigation, fill in your details including name, email, and password. You'll receive a confirmation email to verify your account.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">Is SmartService free to use?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Yes, creating an account and browsing services is completely free. You only pay when you book a service. We don't charge any subscription fees.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I become a service provider?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Sign up as a provider, complete your profile with your skills and experience, upload necessary certifications, and pass our verification process. Once approved, you can start offering services.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Booking -->
-                    <div id="booking" class="mb-16">
-                        <h2 class="text-heading mb-8">Booking & Services</h2>
-                        <div class="space-y-4 max-w-4xl">
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I book a service?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Browse services, select the one you need, choose a date and time, provide any special requirements, and confirm your booking. You'll receive confirmation details via email.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">Can I reschedule my booking?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Yes, you can reschedule your booking up to 24 hours before the scheduled time. Go to your dashboard, find the booking, and select "Reschedule".
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">What if the provider doesn't show up?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    This is rare but if it happens, contact our support team immediately. We'll help you reschedule with another provider or provide a full refund.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Payment -->
-                    <div id="payment" class="mb-16">
-                        <h2 class="text-heading mb-8">Payment & Billing</h2>
-                        <div class="space-y-4 max-w-4xl">
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">What payment methods do you accept?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    We accept all major credit cards (Visa, MasterCard, American Express), debit cards, PayPal, and digital wallets like Apple Pay and Google Pay.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">Is my payment information secure?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Absolutely! We use industry-standard SSL encryption and are PCI DSS compliant. Your payment information is never stored on our servers.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do refunds work?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Refunds are processed according to our cancellation policy. If you cancel 24+ hours before the service, you'll receive a full refund.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Account -->
-                    <div id="account" class="mb-16">
-                        <h2 class="text-heading mb-8">Account Management</h2>
-                        <div class="space-y-4 max-w-4xl">
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I update my profile?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Go to your dashboard, click on your profile picture, and select "Edit Profile". You can update your personal information, contact details, and preferences.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">Can I delete my account?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Yes, you can delete your account from your profile settings. Please note that this action is permanent and cannot be undone.
-                                </div>
-                            </div>
-
-                            <div class="card animate-on-scroll">
-                                <button class="w-full text-left p-6 flex justify-between items-center hover:bg-gray-50 transition" onclick="this.parentElement.classList.toggle('expanded')">
-                                    <h3 class="text-lg font-semibold text-gray-900">How do I change my password?</h3>
-                                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                <div class="px-6 pb-6 text-gray-600">
-                                    Go to your profile settings and select "Change Password". You'll need to enter your current password and then create a new one.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Still Need Help Section -->
-            <div class="section-padding bg-gray-50">
-                <div class="container-max container-padding">
-                    <div class="text-center">
-                        <h2 class="text-heading mb-4">Still Need Help?</h2>
-                        <p class="text-body text-gray-600 max-w-2xl mx-auto mb-8">
-                            Can't find the answer you're looking for? Our support team is here to help you.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="{{ route('contact') }}" class="btn-primary">
-                                Contact Support
-                            </a>
-                            <a href="mailto:support@smartservice.com" class="btn-secondary">
-                                Email Us
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <style>
-                .card.expanded .px-6 {
-                    display: block;
-                }
-
-                .card:not(.expanded) .px-6 {
-                    display: none;
-                }
-
-                .card button svg {
-                    transition: transform 0.3s ease;
-                }
-
-                .card.expanded button svg {
-                    transform: rotate(180deg);
-                }
-            </style>
-    </body>
-</html>
+</x-main-layout>

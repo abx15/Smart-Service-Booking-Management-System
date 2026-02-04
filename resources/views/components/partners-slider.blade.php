@@ -76,6 +76,15 @@
                 },
                 speed: 800,
                 breakpoints: {
+                    320: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 15,
+                        centeredSlides: true
+                    },
+                    480: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
                     640: {
                         slidesPerView: 3,
                         spaceBetween: 30

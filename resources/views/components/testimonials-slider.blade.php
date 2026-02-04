@@ -196,7 +196,15 @@ $displayReviews = !empty($reviews) ? $reviews : $defaultReviews;
 
 <style>
     .testimonials-swiper {
-        padding: 20px 50px 60px;
+        padding: 20px 10px 50px;
+        /* Reduced side padding for mobile */
+    }
+
+    @media (min-width: 768px) {
+        .testimonials-swiper {
+            padding: 20px 50px 60px;
+            /* Original padding for tablet/desktop */
+        }
     }
 
     .testimonials-swiper .swiper-slide {

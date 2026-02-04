@@ -23,7 +23,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased text-gray-600 bg-gray-50 flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false, residentialMenuOpen: false, commercialMenuOpen: false }">
+<body class="font-sans antialiased text-gray-600 bg-gray-50 flex flex-col min-h-screen overflow-x-hidden" x-data="{ mobileMenuOpen: false, residentialMenuOpen: false, commercialMenuOpen: false }">
 
     {{-- Top Utility Bar --}}
     <x-top-utility-bar />

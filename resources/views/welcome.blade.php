@@ -2,40 +2,40 @@
     <x-slot name="title">Professional Home Services You Can Trust</x-slot>
 
     {{-- 1. Hero Section - Full Width --}}
-    <section class="section-full-width relative pt-24 pb-32 md:pt-32 md:pb-40 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section class="section-full-width relative pt-16 pb-20 md:pt-32 md:pb-40 overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         {{-- Background Pattern --}}
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
         </div>
 
-        <div class="section-content-contained relative z-10">
+        <div class="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
             <div class="max-w-4xl mx-auto text-center">
                 {{-- Trust Badge Above Headline --}}
-                <div class="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in">
+                <div class="inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-6 md:mb-8">
                     <x-guarantee-badge size="sm" />
-                    <span class="text-white font-semibold text-sm md:text-base">Trusted by 10,000+ Happy Customers</span>
+                    <span class="text-white font-semibold text-xs md:text-base">Trusted by 10,000+</span>
                 </div>
 
                 {{-- Main Headline --}}
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight animate-fade-in-up">
-                    Your Trusted Home Repair<br class="hidden md:block">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 md:mb-6 leading-tight px-2 break-words text-wrap">
+                    Your Trusted Home Repair<br class="hidden sm:block">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-secondary-300 to-accent-300">Experts</span>
                 </h1>
 
                 {{-- Subheadline --}}
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in">
-                    Licensed, insured, and background-checked professionals ready to help with repairs, remodeling, and maintenance services for your home and business.
+                <p class="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
+                    Licensed, insured, and background-checked professionals ready to help.
                 </p>
 
-                {{-- ZIP Code Search (NEW - Mr. Handyman Style) --}}
-                <div class="max-w-md mx-auto mb-8">
-                    <div class="flex gap-2">
+                {{-- ZIP Code Search - Mobile Friendly --}}
+                <div class="max-w-md mx-auto mb-6 md:mb-8 px-4 w-full">
+                    <div class="flex flex-col sm:flex-row gap-3">
                         <input
                             type="text"
-                            placeholder="Enter your ZIP code"
-                            class="flex-1 px-6 py-4 text-lg rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/20 transition">
-                        <button class="px-8 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-lg shadow-xl transition transform hover:-translate-y-0.5">
-                            Find Services
+                            placeholder="Enter ZIP code"
+                            class="w-full flex-1 px-4 py-3 md:px-6 md:py-4 text-base md:text-lg rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:bg-white/20 transition">
+                        <button class="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-lg shadow-xl transition">
+                            Find
                         </button>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 </div>
 
                 {{-- Trust Indicators --}}
-                <div class="flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-white/80 text-sm">
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5 text-trust-green" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -204,13 +204,13 @@
                     Local expertise, national standards. Find out if we serve your area.
                 </p>
 
-                <div class="max-w-md mx-auto mb-12">
-                    <div class="flex gap-2">
+                <div class="max-w-md mx-auto mb-12 w-full">
+                    <div class="flex flex-col sm:flex-row gap-3">
                         <input
                             type="text"
-                            placeholder="Enter your city or ZIP code"
-                            class="flex-1 px-6 py-4 text-lg rounded-lg border-2 border-gray-300 focus:border-primary focus:outline-none transition">
-                        <button class="px-8 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition">
+                            placeholder="Enter city or ZIP"
+                            class="w-full flex-1 px-4 py-3 md:px-6 md:py-4 text-base md:text-lg rounded-lg border-2 border-gray-300 focus:border-primary focus:outline-none transition">
+                        <button class="w-full sm:w-auto px-6 py-3 md:px-8 md:py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition">
                             Search
                         </button>
                     </div>

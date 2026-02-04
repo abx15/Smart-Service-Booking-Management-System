@@ -30,8 +30,10 @@ Route::get('/privacy', function () {
 
 use App\Http\Controllers\ServiceController;
 
+// Service Routes
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
-Route::get('/services/{service}', [ServiceController::class, 'show'])->name('services.show');
+Route::get('/services/{category}', [ServiceController::class, 'category'])->name('services.category');
+Route::get('/services/{category}/{service}', [ServiceController::class, 'show'])->name('services.show');
 
 use App\Http\Controllers\DashboardController;
 
@@ -48,11 +50,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Worker Routes
+Route::middleware(['auth', 'role:worker'])->prefix('worker')->name('worker.')->group(function () {
+    Route::get('/dashboard', [\App\Http\Controllers\WorkerController::class, 'dashboard'])->name('dashboard');
+    Route::get('/profile', [\App\Http\Controllers\WorkerController::class, 'profile'])->name('profile');
+    Route::patch('/profile', [\App\Http\Controllers\WorkerController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/bookings', [\App\Http\Controllers\WorkerController::class, 'bookings'])->name('bookings');
+    Route::get('/earnings', [\App\Http\Controllers\WorkerController::class, 'earnings'])->name('earnings');
+});
+
 require __DIR__ . '/auth.php';
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
+use App\Http\Controllers\Admin\WorkerController as AdminWorkerController;
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -62,4 +74,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
     Route::get('/bookings/{booking}', [AdminBookingController::class, 'show'])->name('bookings.show');
     Route::patch('/bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
+
+    // Worker Routes
+    Route::get('/workers', [AdminWorkerController::class, 'index'])->name('workers.index');
+    Route::get('/workers/create', [AdminWorkerController::class, 'create'])->name('workers.create');
+    Route::post('/workers', [AdminWorkerController::class, 'store'])->name('workers.store');
+    Route::get('/workers/{worker}/edit', [AdminWorkerController::class, 'edit'])->name('workers.edit');
+    Route::patch('/workers/{worker}', [AdminWorkerController::class, 'update'])->name('workers.update');
+    Route::delete('/workers/{worker}', [AdminWorkerController::class, 'destroy'])->name('workers.destroy');
+    Route::patch('/workers/{worker}/verify', [AdminWorkerController::class, 'verify'])->name('workers.verify');
+    Route::patch('/workers/{worker}/unverify', [AdminWorkerController::class, 'unverify'])->name('workers.unverify');
 });

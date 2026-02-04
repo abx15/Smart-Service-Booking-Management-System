@@ -1,95 +1,27 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<x-main-layout>
+    <x-slot name="title">
+        Help & FAQ - {{ config('app.name', 'SmartService') }}
+    </x-slot>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Hero Section -->
+    <div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-primary via-secondary to-accent">
+        <!-- Background Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
+        </div>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Help & FAQ - SmartService - Find answers to common questions and get support for our service booking platform.">
-    <meta name="keywords" content="help, faq, support, questions, smartservice">
-    <meta name="author" content="SmartService">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Help & FAQ - SmartService">
-    <meta property="og:description" content="Find answers to common questions and get support for our service booking platform.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset('images/og-faq.jpg') }}">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/apple-touch-icon.png') }}">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Custom Styles -->
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .font-display {
-            font-family: 'Outfit', sans-serif;
-        }
-    </style>
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#6366f1">
-
-    <!-- Apple Touch Icon -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-    <title>Help & FAQ - {{ config('app.name', 'SmartService') }}</title>
-</head>
-
-<body class="font-sans antialiased bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-indigo-600 text-white px-4 py-2 rounded-lg z-50">
-        Skip to main content
-    </a>
-
-    <!-- Navigation -->
-    <x-navigation />
-
-    <!-- Page Heading -->
-    <header class="bg-white shadow-sm border-b border-gray-100 fade-in">
-        <div class="container-max container-padding py-6">
-            <div class="fade-in-up">
-                <h1 class="text-3xl font-bold text-gray-900">Help & FAQ</h1>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center text-white">
+                <h1 class="text-5xl md:text-6xl font-black mb-6">
+                    Help & <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Support</span>
+                </h1>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto mb-12 leading-relaxed">
+                    Find answers to common questions and get the support you need to make the most of SmartService.
+                </p>
             </div>
         </div>
-    </header>
-
-    <!-- Page Content -->
-    <main id="main-content" class="flex-grow">
-        <div class="fade-in">
-            <!-- Hero Section -->
-            <div class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
-                <!-- Background Effects -->
-                <div class="absolute inset-0">
-                    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-                </div>
-
-                <div class="container-max container-padding relative z-10">
-                    <div class="text-center text-white">
-                        <h1 class="text-display text-white mb-6 animate-fade-in-up">
-                            Help & <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-pink-200">Support</span>
-                        </h1>
-                        <p class="text-xl text-indigo-100 max-w-3xl mx-auto mb-12 animate-fade-in-up leading-relaxed">
-                            Find answers to common questions and get the support you need to make the most of SmartService.
-                        </p>
-                    </div>
-                </div>
-            </div>
+    </div>
 
             <!-- Search Section -->
             <div class="section-padding bg-white">

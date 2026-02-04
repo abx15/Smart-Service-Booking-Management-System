@@ -17,29 +17,38 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased text-gray-600 bg-bg-clean flex flex-col min-h-screen">
+<body class="font-sans antialiased text-gray-600 bg-gray-50 flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false }">
 
     <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 w-full">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
                     <a href="{{ url('/') }}" class="flex-shrink-0 flex items-center gap-2 group">
                         <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
                             S
                         </div>
-                        <span class="font-bold text-2xl text-text-heading tracking-tight">Smart<span class="text-primary">Service</span></span>
+                        <span class="font-bold text-2xl text-gray-900 tracking-tight">Smart<span class="text-primary">Service</span></span>
                     </a>
 
                     <div class="hidden md:ml-10 md:flex md:space-x-8">
-                        <x-nav-link :href="url('/')" :active="request()->is('/')">
+                        <a href="{{ url('/') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->is('/') ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
                             Home
-                        </x-nav-link>
-                        <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+                        </a>
+                        <a href="{{ route('services.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('services.*') ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
                             Services
-                        </x-nav-link>
-                        <a href="#how-it-works" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                        </a>
+                        <a href="#how-it-works" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             How it Works
+                        </a>
+                        <a href="{{ route('about') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('about') ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                            About
+                        </a>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('contact') ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                            Contact
+                        </a>
+                        <a href="{{ route('faq') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('faq') ? 'border-primary text-primary' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                            Help
                         </a>
                     </div>
                 </div>
@@ -64,49 +73,40 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="-mr-2 flex items-center md:hidden">
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700" @click="mobileMenuOpen = !mobileMenuOpen">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-white border-t border-gray-100" id="mobile-menu">
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link :href="url('/')" :active="request()->is('/')">
-                    Home
-                </x-responsive-nav-link>
-                <x-responsive-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
-                    Services
-                </x-responsive-nav-link>
-            </div>
-
-            <div class="pt-4 pb-4 border-t border-gray-200">
-                <div class="space-y-1">
-                    @auth
-                    <x-responsive-nav-link :href="url('/dashboard')">
-                        Dashboard
-                    </x-responsive-nav-link>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                            Log Out
-                        </x-responsive-nav-link>
-                    </form>
-                    @else
-                    <x-responsive-nav-link :href="route('login')">
-                        Log in
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('register')">
-                        Register
-                    </x-responsive-nav-link>
-                    @endauth
+            <!-- Mobile menu -->
+            <div class="md:hidden" x-show="mobileMenuOpen" x-transition:enter="duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="{{ url('/') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+                    <a href="{{ route('services.index') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Services</a>
+                    <a href="#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">How it Works</a>
+                    <a href="{{ route('about') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
+                    <a href="{{ route('contact') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+                    <a href="{{ route('faq') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Help</a>
+                </div>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="flex items-center px-5">
+                        @auth
+                        <a href="{{ url('/dashboard') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="ml-3 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Log Out</button>
+                        </form>
+                        @else
+                        <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Log in</a>
+                        @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-3 block px-3 py-2 rounded-md text-base font-medium text-primary hover:text-primary-dark">Get Started</a>
+                        @endif
+                        @endauth
+                    </div>
                 </div>
             </div>
         </div>
@@ -118,9 +118,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer class="bg-gray-900 border-t border-gray-800 text-gray-300 w-full">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
                         <div class="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white font-bold text-lg">S</div>
@@ -134,7 +134,7 @@
                 <div>
                     <h3 class="text-sm font-semibold text-white tracking-wider uppercase mb-4">Company</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-base hover:text-white transition">About Us</a></li>
+                        <li><a href="{{ route('about') }}" class="text-base hover:text-white transition">About Us</a></li>
                         <li><a href="#" class="text-base hover:text-white transition">Careers</a></li>
                         <li><a href="#" class="text-base hover:text-white transition">Privacy Policy</a></li>
                     </ul>
@@ -143,9 +143,9 @@
                 <div>
                     <h3 class="text-sm font-semibold text-white tracking-wider uppercase mb-4">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-base hover:text-white transition">Home Cleaning</a></li>
-                        <li><a href="#" class="text-base hover:text-white transition">Plumbing</a></li>
-                        <li><a href="#" class="text-base hover:text-white transition">Electrical</a></li>
+                        <li><a href="{{ route('services.category', 'cleaning') }}" class="text-base hover:text-white transition">Home Cleaning</a></li>
+                        <li><a href="{{ route('services.category', 'plumbing') }}" class="text-base hover:text-white transition">Plumbing</a></li>
+                        <li><a href="{{ route('services.category', 'electrical') }}" class="text-base hover:text-white transition">Electrical</a></li>
                     </ul>
                 </div>
 
@@ -167,7 +167,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto">
                 <p class="text-base text-gray-400">&copy; {{ date('Y') }} Smart Service. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="#" class="text-gray-400 hover:text-white transition">

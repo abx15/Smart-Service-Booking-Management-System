@@ -44,9 +44,54 @@
                 </div>
                 @else
                 <div class="hidden lg:flex items-center space-x-1">
-                    <a href="{{ route('services.index') }}" class="nav-link">
-                        Services
-                    </a>
+                    <x-navigation-dropdown 
+                        title="Services"
+                        :items="[
+                            [
+                                'title' => 'Cleaning Services',
+                                'description' => 'Home, office & deep cleaning',
+                                'url' => route('services.category', 'cleaning'),
+                                'icon' => 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+                                'color' => 'from-blue-500 to-blue-600'
+                            ],
+                            [
+                                'title' => 'Plumbing Services',
+                                'description' => 'Pipe repair, installation & more',
+                                'url' => route('services.category', 'plumbing'),
+                                'icon' => 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+                                'color' => 'from-cyan-500 to-cyan-600'
+                            ],
+                            [
+                                'title' => 'Electrical Services',
+                                'description' => 'Wiring, installation & repair',
+                                'url' => route('services.category', 'electrical'),
+                                'icon' => 'M13 10V3L4 14h7v7l9-11h-7z',
+                                'color' => 'from-yellow-500 to-orange-600'
+                            ],
+                            [
+                                'title' => 'Moving Services',
+                                'description' => 'House & office shifting',
+                                'url' => route('services.category', 'moving'),
+                                'icon' => 'M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4',
+                                'color' => 'from-green-500 to-green-600'
+                            ],
+                            [
+                                'title' => 'Painting Services',
+                                'description' => 'Interior & exterior painting',
+                                'url' => route('services.category', 'painting'),
+                                'icon' => 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+                                'color' => 'from-purple-500 to-purple-600'
+                            ],
+                            [
+                                'title' => 'Gardening Services',
+                                'description' => 'Lawn care & landscaping',
+                                'url' => route('services.category', 'gardening'),
+                                'icon' => 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+                                'color' => 'from-emerald-500 to-emerald-600'
+                            ]
+                        ]"
+                    />
+                    
                     <a href="{{ route('about') }}" class="nav-link">
                         About
                     </a>

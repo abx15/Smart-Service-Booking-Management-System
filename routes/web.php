@@ -77,6 +77,8 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 use App\Http\Controllers\Admin\WorkerController as AdminWorkerController;
+use App\Http\Controllers\Admin\JobApplicationController;
+use App\Http\Controllers\CareersController;
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -96,4 +98,14 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('/workers/{worker}', [AdminWorkerController::class, 'destroy'])->name('workers.destroy');
     Route::patch('/workers/{worker}/verify', [AdminWorkerController::class, 'verify'])->name('workers.verify');
     Route::patch('/workers/{worker}/unverify', [AdminWorkerController::class, 'unverify'])->name('workers.unverify');
+
+    // Job Applications Routes
+    Route::get('/job-applications', [JobApplicationController::class, 'index'])->name('job-applications.index');
+    Route::get('/job-applications/{id}', [JobApplicationController::class, 'show'])->name('job-applications.show');
+    Route::patch('/job-applications/{id}/status', [JobApplicationController::class, 'updateStatus'])->name('job-applications.update-status');
+    Route::delete('/job-applications/{id}', [JobApplicationController::class, 'destroy'])->name('job-applications.destroy');
 });
+
+// Careers Routes (Public)
+Route::get('/careers', [CareersController::class, 'index'])->name('careers.index');
+Route::post('/careers/apply', [CareersController::class, 'store'])->name('careers.apply');

@@ -14,9 +14,9 @@
     x-transition:leave-end="opacity-0 translate-y-1"
     style="display: none;"
     x-cloak
-    class="absolute left-0 right-0 z-50 mt-2 w-full bg-white shadow-2xl border-t-4 border-secondary">
+    class="fixed left-0 right-0 top-full z-50 bg-white shadow-2xl border-t-4 border-secondary">
 
-    <div class="section-content-contained py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {{-- Column 1: Industries We Serve --}}

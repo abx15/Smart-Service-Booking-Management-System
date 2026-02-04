@@ -42,16 +42,16 @@
                     </a>
 
                     {{-- Desktop Navigation --}}
-                    <div class="hidden lg:ml-10 lg:flex lg:space-x-6">
-                        <a href="{{ url('/') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->is('/') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                    <div class="hidden lg:ml-16 lg:flex lg:space-x-8">
+                        <a href="{{ url('/') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('/') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                             Home
                         </a>
 
                         {{-- Residential Mega Menu --}}
                         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                            <button class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->is('residential-services*') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                            <button class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('residential-services*') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                                 Residential
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
@@ -60,22 +60,22 @@
 
                         {{-- Commercial Mega Menu --}}
                         <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                            <button class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->is('commercial-services*') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                            <button class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('commercial-services*') ? 'border-secondary text-secondary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                                 Commercial
-                                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
                             <x-mega-menu-commercial />
                         </div>
 
-                        <a href="{{ route('how-it-works') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('how-it-works') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                        <a href="{{ route('how-it-works') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->routeIs('how-it-works') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                             How We Work
                         </a>
-                        <a href="{{ route('about') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('about') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                        <a href="{{ route('about') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->routeIs('about') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                             About
                         </a>
-                        <a href="{{ route('contact') }}" class="inline-flex items-center px-1 pt-1 border-b-2 {{ request()->routeIs('contact') ? 'border-primary text-primary' : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300' }} text-sm font-medium leading-5 transition duration-150 ease-in-out">
+                        <a href="{{ route('contact') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->routeIs('contact') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                             Contact
                         </a>
                     </div>

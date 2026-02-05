@@ -68,6 +68,7 @@ Route::middleware(['auth', 'role:provider'])->prefix('worker')->name('worker.')-
     Route::get('/profile', [\App\Http\Controllers\WorkerController::class, 'profile'])->name('profile');
     Route::patch('/profile', [\App\Http\Controllers\WorkerController::class, 'updateProfile'])->name('profile.update');
     Route::get('/bookings', [\App\Http\Controllers\WorkerController::class, 'bookings'])->name('bookings');
+    Route::get('/services', [\App\Http\Controllers\WorkerController::class, 'services'])->name('services');
     Route::get('/earnings', [\App\Http\Controllers\WorkerController::class, 'earnings'])->name('earnings');
 });
 

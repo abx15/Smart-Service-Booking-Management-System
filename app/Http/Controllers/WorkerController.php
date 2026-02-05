@@ -72,4 +72,10 @@ class WorkerController extends Controller
 
         return view('worker.earnings', compact('user', 'earnings', 'totalEarnings'));
     }
+    public function services()
+    {
+        $user = Auth::user();
+        $services = $user->providerServices()->latest()->paginate(10);
+        return view('worker.services', compact('user', 'services'));
+    }
 }

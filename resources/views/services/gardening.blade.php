@@ -17,7 +17,7 @@
                         From lawn care to complete landscaping, our gardening experts keep your outdoor spaces beautiful, healthy, and thriving all year round.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <x-button href="{{ route('bookings.create') }}" variant="primary" size="lg">
+                        <x-button href="#available-packages" variant="primary" size="lg">
                             Book Gardening Service
                         </x-button>
                         <x-button href="tel:+18001234567" variant="outline" size="lg">
@@ -48,6 +48,40 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    {{-- NEW: Available Packages (DB Driven) --}}
+    <section id="available-packages" class="section-full-width py-16 bg-lime-50">
+        <div class="section-content-contained">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Book Gardening Service</h2>
+                <p class="text-gray-600">Select a package to get started.</p>
+            </div>
+
+            @if(isset($services) && $services->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($services as $service)
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $service->name }}</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-grow">{{ $service->short_description ?? 'Professional gardening service.' }}</p>
+                    <div class="flex items-end justify-between mt-4">
+                        <div>
+                            <span class="text-2xl font-bold text-lime-600">${{ $service->price }}</span>
+                        </div>
+                        <a href="{{ route('bookings.create', ['service_id' => $service->id]) }}" class="px-6 py-2 bg-gradient-to-r from-lime-600 to-green-600 text-white font-bold rounded-lg hover:from-lime-700 hover:to-green-700 transition">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @else
+            <div class="text-center py-8 bg-white rounded-xl shadow border border-gray-100">
+                <p class="text-gray-500">No specific packages available online right now. Please call for a custom quote.</p>
+                <a href="tel:+18001234567" class="inline-block mt-4 px-6 py-3 bg-lime-600 text-white font-bold rounded-lg">Call Us</a>
+            </div>
+            @endif
         </div>
     </section>
 

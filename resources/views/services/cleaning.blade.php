@@ -17,7 +17,7 @@
                         From deep cleaning to regular maintenance, our professional cleaning services ensure your home is spotless, sanitized, and welcoming.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <x-button href="{{ route('bookings.create') }}" variant="primary" size="lg">
+                        <x-button href="#available-packages" variant="primary" size="lg">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
@@ -54,6 +54,40 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    {{-- NEW: Available Packages (DB Driven) --}}
+    <section id="available-packages" class="section-full-width py-16 bg-blue-50">
+        <div class="section-content-contained">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Book a Cleaning Service</h2>
+                <p class="text-gray-600">Select a package below to book immediately.</p>
+            </div>
+
+            @if(isset($services) && $services->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($services as $service)
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $service->name }}</h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-grow">{{ $service->short_description ?? 'Professional cleaning service.' }}</p>
+                    <div class="flex items-end justify-between mt-4">
+                        <div>
+                            <span class="text-2xl font-bold text-cyan-600">${{ $service->price }}</span>
+                        </div>
+                        <a href="{{ route('bookings.create', ['service_id' => $service->id]) }}" class="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold rounded-lg hover:from-blue-700 hover:to-cyan-700 transition">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @else
+            <div class="text-center py-8 bg-white rounded-xl shadow border border-gray-100">
+                <p class="text-gray-500">No specific packages available online right now. Please call for a custom quote.</p>
+                <a href="tel:+18001234567" class="inline-block mt-4 px-6 py-3 bg-cyan-600 text-white font-bold rounded-lg">Call Us</a>
+            </div>
+            @endif
         </div>
     </section>
 

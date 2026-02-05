@@ -94,6 +94,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/workers', [AdminWorkerController::class, 'index'])->name('workers.index');
     Route::get('/workers/create', [AdminWorkerController::class, 'create'])->name('workers.create');
     Route::post('/workers', [AdminWorkerController::class, 'store'])->name('workers.store');
+    Route::get('/workers/{worker}', [AdminWorkerController::class, 'show'])->name('workers.show');
     Route::get('/workers/{worker}/edit', [AdminWorkerController::class, 'edit'])->name('workers.edit');
     Route::patch('/workers/{worker}', [AdminWorkerController::class, 'update'])->name('workers.update');
     Route::delete('/workers/{worker}', [AdminWorkerController::class, 'destroy'])->name('workers.destroy');

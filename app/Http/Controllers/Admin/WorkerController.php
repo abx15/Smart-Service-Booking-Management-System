@@ -52,6 +52,11 @@ class WorkerController extends Controller
             ->with('success', 'Worker created successfully.');
     }
 
+    public function show(User $worker)
+    {
+        return view('admin.workers.show', compact('worker'));
+    }
+
     public function edit(User $worker)
     {
         return view('admin.workers.edit', compact('worker'));

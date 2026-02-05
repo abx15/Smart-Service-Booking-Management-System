@@ -53,7 +53,7 @@
                 Add Worker
             </a>
         </div>
-        
+
         <div class="flex items-center space-x-2">
             <form method="GET" class="flex items-center">
                 <input type="text" name="search" placeholder="Search workers..." value="{{ request('search') }}" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
@@ -106,14 +106,15 @@
                         </td>
                         <td class="px-6 py-4 text-gray-600">{{ $worker->experience }} years</td>
                         <td class="px-6 py-4">
-                            @if($worker->verified)
-                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-bold">Verified</span>
+                            @if($worker->is_active)
+                            <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-bold">Active</span>
                             @else
-                            <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-bold">Pending</span>
+                            <span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-bold">Inactive</span>
                             @endif
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center space-x-2">
+                                <a href="{{ route('admin.workers.show', $worker) }}" class="text-gray-600 hover:text-gray-900 font-medium">View</a>
                                 <a href="{{ route('admin.workers.edit', $worker) }}" class="text-blue-600 hover:text-blue-800 font-medium">Edit</a>
                                 @if($worker->verified)
                                 <form method="POST" action="{{ route('admin.workers.unverify', $worker) }}" onsubmit="return confirm('Are you sure?')">
@@ -141,7 +142,7 @@
                 </tbody>
             </table>
         </div>
-        
+
         <!-- Pagination -->
         <div class="px-6 py-4 border-t border-gray-100">
             {{ $workers->links() }}

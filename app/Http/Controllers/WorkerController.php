@@ -11,12 +11,12 @@ class WorkerController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
-        $bookings = $user->bookings()->with('service')->latest()->take(5)->get();
+        $bookings = $user->providerBookings()->with('service')->latest()->take(5)->get();
         $stats = [
-            'total_bookings' => $user->bookings()->count(),
-            'completed_bookings' => $user->bookings()->where('status', 'completed')->count(),
-            'pending_bookings' => $user->bookings()->where('status', 'pending')->count(),
-            'total_earnings' => $user->bookings()->where('status', 'completed')->sum('total_amount'),
+            'total_bookings' => $user->providerBookings()->count(),
+            'completed_bookings' => $user->providerBookings()->where('status', 'completed')->count(),
+            'pending_bookings' => $user->providerBookings()->where('status', 'pending')->count(),
+            'total_earnings' => $user->providerBookings()->where('status', 'completed')->sum('total_amount'),
         ];
 
         return view('worker.dashboard', compact('user', 'bookings', 'stats'));
@@ -31,7 +31,7 @@ class WorkerController extends Controller
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -57,17 +57,17 @@ class WorkerController extends Controller
     public function bookings()
     {
         $user = Auth::user();
-        $bookings = $user->bookings()->with('service')->latest()->paginate(10);
-        
+        $bookings = $user->providerBookings()->with('service')->latest()->paginate(10);
+
         return view('worker.bookings', compact('user', 'bookings'));
     }
 
     public function earnings()
     {
         $user = Auth::user();
-        $earnings = $user->bookings()->where('status', 'completed')->latest()->paginate(10);
-        $totalEarnings = $user->bookings()->where('status', 'completed')->sum('total_amount');
-        
+        $earnings = $user->providerBookings()->where('status', 'completed')->latest()->paginate(10);
+        $totalEarnings = $user->providerBookings()->where('status', 'completed')->sum('total_amount');
+
         return view('worker.earnings', compact('user', 'earnings', 'totalEarnings'));
     }
 }

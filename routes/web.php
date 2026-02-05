@@ -63,7 +63,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Worker Routes
-Route::middleware(['auth', 'role:worker'])->prefix('worker')->name('worker.')->group(function () {
+Route::middleware(['auth', 'role:provider'])->prefix('worker')->name('worker.')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\WorkerController::class, 'dashboard'])->name('dashboard');
     Route::get('/profile', [\App\Http\Controllers\WorkerController::class, 'profile'])->name('profile');
     Route::patch('/profile', [\App\Http\Controllers\WorkerController::class, 'updateProfile'])->name('profile.update');

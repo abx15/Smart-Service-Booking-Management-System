@@ -105,7 +105,7 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 {{-- Residential Services Card --}}
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-8 border-2 border-primary/20 hover:border-primary hover:shadow-2xl transition-all">
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-8 border-2 border-primary/20 hover:border-primary hover:shadow-2xl hover:-translate-y-2 active:scale-95 transition-all duration-300">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16"></div>
                     <div class="relative">
                         <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-6">
@@ -125,7 +125,7 @@
                 </div>
 
                 {{-- Commercial Services Card --}}
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/10 to-secondary/5 p-8 border-2 border-secondary/20 hover:border-secondary hover:shadow-2xl transition-all">
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/10 to-secondary/5 p-8 border-2 border-secondary/20 hover:border-secondary hover:shadow-2xl hover:-translate-y-2 active:scale-95 transition-all duration-300">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -mr-16 -mt-16"></div>
                     <div class="relative">
                         <div class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-xl flex items-center justify-center mb-6">
@@ -145,7 +145,7 @@
                 </div>
 
                 {{-- Emergency Services Card --}}
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 p-8 border-2 border-accent/20 hover:border-accent hover:shadow-2xl transition-all">
+                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5 p-8 border-2 border-accent/20 hover:border-accent hover:shadow-2xl hover:-translate-y-2 active:scale-95 transition-all duration-300">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -mr-16 -mt-16"></div>
                     <div class="relative">
                         <div class="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center mb-6">

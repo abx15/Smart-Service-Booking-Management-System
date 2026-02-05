@@ -48,25 +48,29 @@
                         </a>
 
                         {{-- Residential Mega Menu --}}
-                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <div class="relative" x-data="{ open: false, timeout: null }" @mouseenter="clearTimeout(timeout); open = true" @mouseleave="timeout = setTimeout(() => open = false, 300)">
                             <button class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('residential-services*') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                                 Residential
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
-                            <x-mega-menu-residential />
+                            <x-mega-menu-residential
+                                @mouseenter="clearTimeout(timeout); open = true"
+                                @mouseleave="timeout = setTimeout(() => open = false, 300)" />
                         </div>
 
                         {{-- Commercial Mega Menu --}}
-                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                        <div class="relative" x-data="{ open: false, timeout: null }" @mouseenter="clearTimeout(timeout); open = true" @mouseleave="timeout = setTimeout(() => open = false, 300)">
                             <button class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('commercial-services*') ? 'border-secondary text-secondary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                                 Commercial
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
-                            <x-mega-menu-commercial />
+                            <x-mega-menu-commercial
+                                @mouseenter="clearTimeout(timeout); open = true"
+                                @mouseleave="timeout = setTimeout(() => open = false, 300)" />
                         </div>
 
                         <a href="{{ route('how-it-works') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->routeIs('how-it-works') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">

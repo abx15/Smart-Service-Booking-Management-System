@@ -10,7 +10,9 @@ class WorkerController extends Controller
 {
     public function index()
     {
-        $workers = User::where('role', 'worker')->with('services')->paginate(10);
+        $workers = User::whereHas('role', function ($query) {
+            $query->where('name', 'provider');
+        })->with('providerServices')->paginate(10);
         return view('admin.workers.index', compact('workers'));
     }
 
@@ -38,11 +40,11 @@ class WorkerController extends Controller
             'password' => bcrypt($request->password),
             'phone' => $request->phone,
             'address' => $request->address,
-            'role' => 'worker',
+            'role_id' => \App\Models\Role::where('name', 'provider')->first()->id,
             'skills' => $request->skills,
             'experience' => $request->experience,
             'bio' => $request->bio,
-            'verified' => false,
+            'is_active' => true,
             'email_verified_at' => now(),
         ]);
 
@@ -90,14 +92,14 @@ class WorkerController extends Controller
 
     public function verify(User $worker)
     {
-        $worker->update(['verified' => true]);
+        $worker->update(['is_active' => true]);
         return redirect()->route('admin.workers.index')
             ->with('success', 'Worker verified successfully.');
     }
 
     public function unverify(User $worker)
     {
-        $worker->update(['verified' => false]);
+        $worker->update(['is_active' => false]);
         return redirect()->route('admin.workers.index')
             ->with('success', 'Worker unverified successfully.');
     }

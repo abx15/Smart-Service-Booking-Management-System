@@ -39,6 +39,16 @@
             </a>
 
             <div class="pt-4 pb-2">
+                <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Switch View</p>
+                <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 px-4 py-2 text-gray-600 rounded-xl hover:bg-teal-50 hover:text-teal-600 transition-all group mt-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                    <span>Book a Service</span>
+                </a>
+            </div>
+
+            <div class="pt-4 pb-2">
                 <p class="px-4 text-xs font-bold text-gray-400 uppercase tracking-wider">Management</p>
             </div>
 

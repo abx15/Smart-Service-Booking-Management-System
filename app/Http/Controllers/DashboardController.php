@@ -16,11 +16,9 @@ class DashboardController extends Controller
 
         if ($user->hasRole('admin')) {
             return redirect()->route('admin.dashboard');
-        } elseif ($user->hasRole('provider')) {
-            return redirect()->route('worker.dashboard');
-        } else {
-            return $this->customerDashboard();
         }
+
+        return $this->customerDashboard();
     }
 
     private function customerDashboard()

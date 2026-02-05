@@ -42,7 +42,7 @@
                     </a>
 
                     {{-- Desktop Navigation --}}
-                    <div class="hidden lg:ml-16 lg:flex lg:space-x-8">
+                    <div class="hidden lg:ml-10 xl:ml-16 lg:flex lg:space-x-6 xl:space-x-8">
                         <a href="{{ url('/') }}" class="inline-flex items-center px-3 pt-1 border-b-2 {{ request()->is('/') ? 'border-primary text-primary' : 'border-transparent text-gray-700 hover:text-gray-900 hover:border-gray-300' }} text-base font-medium leading-5 transition duration-150 ease-in-out">
                             Home
                         </a>
@@ -193,7 +193,7 @@
 
     {{-- Footer --}}
     <footer class="section-full-width bg-gray-900 border-t border-gray-800 text-gray-300">
-        <div class="section-content-contained py-16 md:py-20">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-16 md:py-20">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
                 {{-- Company Info --}}
                 <div class="lg:col-span-2">
@@ -295,7 +295,13 @@
 
             {{-- Bottom Bar --}}
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-gray-400 mb-4 md:mb-0">&copy; {{ date('Y') }} SmartService. All rights reserved.</p>
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-400">&copy; {{ date('Y') }} SmartService. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mt-1">
+                        Made with ❤️ by <a href="https://arun15dev.netlify.app/" target="_blank" class="text-gray-400 hover:text-white transition underline decoration-gray-600 hover:decoration-white">Arun Kumar Bind</a> |
+                        <a href="mailto:developerarunwork@gmail.com" class="text-gray-400 hover:text-white transition">Contact Developer</a>
+                    </p>
+                </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

@@ -13,11 +13,13 @@ A comprehensive, modern service booking management system built with Laravel 12.
 ## 🌟 Key Features
 
 ### 👥 Multi-Role System
+
 - **Admin**: Complete system oversight and management
 - **Service Provider**: Manage services, bookings, and availability
 - **Customer**: Browse services, book appointments, and manage bookings
 
 ### 🛠️ Service Management
+
 - Service categories and subcategories
 - Flexible pricing tiers and packages
 - Service descriptions with images
@@ -25,6 +27,7 @@ A comprehensive, modern service booking management system built with Laravel 12.
 - Provider availability management
 
 ### 📅 Booking System
+
 - Real-time booking calendar
 - Time slot management
 - Booking status tracking
@@ -32,6 +35,7 @@ A comprehensive, modern service booking management system built with Laravel 12.
 - Booking history and analytics
 
 ### 💳 Payment Integration
+
 - Multiple payment methods
 - Invoice generation
 - Payment status tracking
@@ -39,6 +43,7 @@ A comprehensive, modern service booking management system built with Laravel 12.
 - Transaction history
 
 ### 📊 Analytics & Reporting
+
 - Booking statistics
 - Revenue tracking
 - Customer insights
@@ -46,6 +51,7 @@ A comprehensive, modern service booking management system built with Laravel 12.
 - Export capabilities
 
 ### 🔔 Notification System
+
 - Email notifications
 - In-app alerts
 - SMS integration ready
@@ -54,6 +60,7 @@ A comprehensive, modern service booking management system built with Laravel 12.
 ## 🚀 Technology Stack
 
 ### Backend
+
 - **Framework**: Laravel 12.0
 - **Language**: PHP 8.2+
 - **Database**: MySQL/SQLite
@@ -61,12 +68,14 @@ A comprehensive, modern service booking management system built with Laravel 12.
 - **Queue System**: Redis/Database
 
 ### Frontend
+
 - **CSS Framework**: TailwindCSS 3.1+
 - **JavaScript**: Alpine.js 3.4+
 - **Build Tool**: Vite 7.0+
 - **Icons**: Lucide Icons
 
 ### Development Tools
+
 - **Testing**: PHPUnit 11.5+
 - **Code Style**: Laravel Pint
 - **PDF Generation**: DomPDF
@@ -83,12 +92,14 @@ A comprehensive, modern service booking management system built with Laravel 12.
 ## 🛠️ Installation
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/Smart-Service-Booking-Management-System.git
 cd Smart-Service-Booking-Management-System
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 # Install PHP dependencies
 composer install
@@ -98,6 +109,7 @@ npm install
 ```
 
 ### 3. Environment Configuration
+
 ```bash
 # Copy environment file
 cp .env.example .env
@@ -109,6 +121,7 @@ php artisan key:generate
 ```
 
 ### 4. Database Setup
+
 ```bash
 # Run migrations
 php artisan migrate
@@ -118,11 +131,13 @@ php artisan db:seed
 ```
 
 ### 5. Build Assets
+
 ```bash
 npm run build
 ```
 
 ### 6. Start Development Server
+
 ```bash
 # Using Laravel's built-in server
 php artisan serve
@@ -157,6 +172,7 @@ composer run dev
 ## 🔧 Configuration
 
 ### Environment Variables
+
 Key environment variables to configure:
 
 ```env
@@ -189,14 +205,17 @@ QUEUE_CONNECTION=redis
 ## 📖 Usage
 
 ### Admin Dashboard
+
 - Access: `/dashboard` (with admin role)
 - Features: User management, service oversight, analytics
 
 ### Provider Portal
+
 - Access: `/dashboard` (with provider role)
 - Features: Service management, booking handling, availability settings
 
 ### Customer Interface
+
 - Access: `/` (public) and `/dashboard` (authenticated)
 - Features: Service browsing, booking, profile management
 
@@ -241,23 +260,25 @@ API endpoints are prefixed with `/api/v1/`.
 ### Production Setup
 
 1. **Environment Configuration**:
-   ```bash
-   APP_ENV=production
-   APP_DEBUG=false
-   ```
+
+    ```bash
+    APP_ENV=production
+    APP_DEBUG=false
+    ```
 
 2. **Optimize Application**:
-   ```bash
-   php artisan config:cache
-   php artisan route:cache
-   php artisan view:cache
-   php artisan optimize
-   ```
+
+    ```bash
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+    php artisan optimize
+    ```
 
 3. **Set Up Queue Worker**:
-   ```bash
-   php artisan queue:work --daemon
-   ```
+    ```bash
+    php artisan queue:work --daemon
+    ```
 
 ### Docker Deployment
 
@@ -289,6 +310,21 @@ docker-compose exec app php artisan migrate
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 👨‍💻 Developer
+
+<div align="center">
+  <h3>Arun Kumar Bind</h3>
+  <p><strong>Full Stack Web Developer</strong></p>
+  <p>
+    Passionate developer specializing in building robust web applications with modern technologies like Laravel, React, and TailwindCSS. Dedicated to creating seamless user experiences and efficient backend systems.
+  </p>
+  <p>
+    <a href="https://arun15dev.netlify.app/">🌐 Portfolio</a> • 
+    <a href="https://www.linkedin.com/in/arun-kumar-bind-8b5b6a22a/">linkedin</a> • 
+    <a href="mailto:developerarunwork@gmail.com">📧 Email</a>
+  </p>
+</div>
+
 ## 🙏 Acknowledgments
 
 - Laravel Framework and community
@@ -306,6 +342,7 @@ For support and questions:
 ## 🔄 Changelog
 
 ### Version 1.0.0 (2026-01-29)
+
 - Initial release
 - Core booking functionality
 - Multi-role authentication

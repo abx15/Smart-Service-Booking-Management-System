@@ -26,6 +26,7 @@ class Booking extends Model
         'tax_amount',
         'discount_amount',
         'total_amount',
+        'payment_method',
         'cancellation_reason',
         'cancelled_by',
         'cancelled_at',

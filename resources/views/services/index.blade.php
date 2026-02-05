@@ -173,7 +173,7 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <x-button
-                        href="{{ route('bookings.create') }}"
+                        href="{{ route('services.index') }}"
                         variant="secondary"
                         size="xl"
                         class="!bg-white !text-primary hover:!bg-gray-100">

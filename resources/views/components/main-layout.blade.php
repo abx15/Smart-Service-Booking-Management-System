@@ -104,7 +104,7 @@
                         </button>
                     </form>
                     @else
-                    <a href="{{ route('bookings.create') }}" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-lg shadow-lg shadow-primary/30 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                    <a href="{{ route('services.index') }}" class="px-6 py-3 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark text-white font-bold rounded-lg shadow-lg shadow-primary/30 transition transform hover:-translate-y-0.5 whitespace-nowrap">
                         Request Service
                     </a>
                     @endauth

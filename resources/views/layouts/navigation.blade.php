@@ -35,7 +35,7 @@
                     </a>
                     @endif
 
-                    <a href="{{ route('bookings.create') }}" class="nav-link {{ request()->routeIs('bookings*') ? 'nav-link-active' : '' }}">
+                    <a href="{{ route('services.index') }}" class="nav-link {{ request()->routeIs('bookings*') ? 'nav-link-active' : '' }}">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
@@ -44,7 +44,7 @@
                 </div>
                 @else
                 <div class="hidden lg:flex items-center space-x-1">
-                    <x-navigation-dropdown 
+                    <x-navigation-dropdown
                         title="Services"
                         :items="[
                             [
@@ -89,9 +89,8 @@
                                 'icon' => 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
                                 'color' => 'from-emerald-500 to-emerald-600'
                             ]
-                        ]"
-                    />
-                    
+                        ]" />
+
                     <a href="{{ route('about') }}" class="nav-link">
                         About
                     </a>
@@ -253,7 +252,7 @@
             </a>
             @endif
 
-            <a href="{{ route('bookings.create') }}" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl transition-colors">
+            <a href="{{ route('services.index') }}" class="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl transition-colors">
                 <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>

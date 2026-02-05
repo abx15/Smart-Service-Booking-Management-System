@@ -43,7 +43,7 @@
                 {{-- CTAs --}}
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-float-in-up">
                     <x-button
-                        href="{{ route('bookings.create') }}"
+                        href="{{ route('services.index') }}"
                         variant="primary"
                         size="xl"
                         class="group">

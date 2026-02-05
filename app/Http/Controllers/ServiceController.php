@@ -23,9 +23,15 @@ class ServiceController extends Controller
             abort(404);
         }
 
-        // Return the specific category blade view
-        // e.g., services/cleaning.blade.php, services/plumbing.blade.php, etc.
-        return view("services.{$category}");
+        // Fetch real services for this category from DB to allow booking
+        // Assuming 'category' column in services table stores the slug (e.g. 'cleaning')
+        // OR we need to look up Category model first. schema says services has category_id.
+        // Let's assume we need to join or find category first.
+
+        $categoryModel = \App\Models\Category::where('slug', $category)->first();
+        $services = $categoryModel ? \App\Models\Service::where('category_id', $categoryModel->id)->get() : collect([]);
+
+        return view("services.{$category}", compact('services'));
     }
 
     public function show($category, $service)

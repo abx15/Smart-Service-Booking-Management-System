@@ -39,6 +39,7 @@ class WorkerController extends Controller
             'skills' => 'required|string',
             'experience' => 'required|integer|min:0',
             'bio' => 'nullable|string',
+            'is_active' => 'sometimes|boolean',
         ]);
 
         $user->update([
@@ -48,6 +49,7 @@ class WorkerController extends Controller
             'skills' => $request->skills,
             'experience' => $request->experience,
             'bio' => $request->bio,
+            'is_active' => $request->has('is_active'),
         ]);
 
         return redirect()->route('worker.dashboard')
